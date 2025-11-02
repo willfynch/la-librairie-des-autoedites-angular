@@ -9,7 +9,7 @@ export default class BooksUseCase {
 
   private readonly _gateway: BooksGateway = inject(InMemoryBooksGateway);
   
-  private _filterByType(type: BookCategory, books: Book[]) {
+  private _filterBooksByType(type: BookCategory, books: Book[]) {
     return books.filter((book) => book.type === type);
   }
 
@@ -34,7 +34,7 @@ export default class BooksUseCase {
   public filterBooks(type: BookCategory, searchedValue: string) {
     return this.getAllBooks().pipe(
       map((books) => {
-        const filteredByType = this._filterByType(type, books)
+        const filteredByType = this._filterBooksByType(type, books)
         return this._filterBooksBySearchedValue(filteredByType, searchedValue)
       })
     );

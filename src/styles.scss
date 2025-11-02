@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Reenie+Beanie&display=swap');
+
+// @plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "me";
+    default: true;
+    prefersdark: false;
+    color-scheme: light;
+
+    --color-primary: #382208;
+    --color-primary-content: #382208;
+    --color-secondary: "#221505";
+    --accent: #9D9686;
+    --neutral: #CFC7B8;
+    --base-100: #FDF7EC;
+    --info: #ccd7c5;
+    --success: #15803d;
+    --warning: #fbbf24;
+    --error: #be123c;
+
+    --rounded-btn: 1.5rem;
+    --grid-template-columns-books: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.title {
+    font-family: "Amatic SC";
+    font-weight: 600;
+    font-style: normal;
+
+    text-shadow: #FC0 1px 0 10px;
+}
+.subtitle {
+    font-family: "Amatic SC";
+    font-weight: 600;
+    font-size: 3rem;
+    font-style: normal;
+}
