@@ -43,3 +43,5 @@ Thumbs.db
 
 src/app/books/mock/data.json
 CLAUDE.md
+*storybook.log
+storybook-static
