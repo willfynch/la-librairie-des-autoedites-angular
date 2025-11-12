@@ -1,41 +1,18 @@
-<div class="card bg-white shadow-xl hover:shadow-sm duration-300 group max-w-sm">
-  <a [href]="'/livres/' + slug()">
-    <figure class="w-full">
-      <img class="object-contain h-80" [src]="book().cover" [alt]="'Couverture de  ' + book().title" />
-    </figure>
-    <div class="card-body">
-      <a [href]="'/livres/' + slug()">
-        <h2 class="card-title  duration-300">
-          {{ book().title }}
-        </h2>
-      </a>
-      <h3>{{ book().authorName }}</h3>
-      <div class="card-actions justify-start wrap">
-        @for(tag of book().tags; track tag){
-        <div class="badge badge-outline">
-          {{ tag }}
-        </div>
-        }
+<a [routerLink]="'/livres/' + slug()" class="card border-primary border-2 shadow-xl hover:shadow-sm transition duration-300 ease-in-out hover:scale-102 group max-w-xs">
+  <figure class="w-full">
+    <img class="object-contain h-80" [src]="book().cover" [alt]="'Couverture de ' + book().title" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title duration-300">
+      {{ book().title }}
+    </h2>
+    <h3>{{ book().authorName }}</h3>
+    <div class="card-actions justify-start wrap">
+      @for(tag of book().tags; track tag){
+      <div class="badge badge-outline">
+        {{ tag }}
       </div>
-    </div>
-  </a>
-</div>
-
-<dialog [id]="'synopsis_modal_' + book().id" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <div class="flex gap-4">
-      <h3 class="font-bold text-lg">Résumé</h3>
-    </div>
-
-    <p class="py-4">{{ book().catchPhrase }}</p>
-    <div class="modal-action">
-      <form method="dialog" class="flex flex-row gap-2">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn btn-sm btn-primary text-neutral">Fermer</button>
-      </form>
+      }
     </div>
   </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
+</a>

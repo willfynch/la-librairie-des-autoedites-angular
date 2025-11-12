@@ -1,11 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig, type Meta, type StoryObj } from '@storybook/angular';
 import { BookCard } from './book-card';
 import { Book } from '../../../domain/types/books.entities';
+import { provideRouter, withHashLocation } from '@angular/router';
 
 const meta: Meta<BookCard> = {
   component: BookCard,
   title: 'Books/BookCard',
   tags: ['autodocs'],
+  decorators: [
+    applicationConfig({
+      providers: [provideRouter([], withHashLocation())],
+    }),
+  ],
 };
 
 export default meta;
@@ -21,8 +27,9 @@ const sampleBook: Book = {
   year: 2024,
   link: 'https://example.com/book/1',
   tags: ['Aventure', 'Fiction', 'Fantastique'],
-  cover: 'https://via.placeholder.com/300x450/382208/FDF7EC?text=Le+Voyage',
-  catchPhrase: 'Une aventure épique à travers des mondes inconnus, où chaque page révèle de nouveaux mystères.',
+  cover: 'https://m.media-amazon.com/images/I/610NdyNU9NL._SL1500_.jpg',
+  catchPhrase:
+    'Une aventure épique à travers des mondes inconnus, où chaque page révèle de nouveaux mystères.',
   type: 'novel',
   socialLink: 'https://twitter.com/mariedubois',
 };
@@ -59,7 +66,7 @@ export const Poetry: Story = {
       authorName: 'Jean Poète',
       tags: ['Poésie', 'Moderne'],
       type: 'poetry',
-      cover: 'https://via.placeholder.com/300x450/221505/FDF7EC?text=Vers+et+Prose',
+      cover: 'https://m.media-amazon.com/images/I/610NdyNU9NL._SL1500_.jpg',
     },
   },
 };

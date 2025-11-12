@@ -6,7 +6,11 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../src/app/books/application/components/**/*.stories.ts', '../src/stories/**/*.stories.@(js|mjs|ts)'],
-  addons: ['@storybook/addon-onboarding'],
+  addons: [
+    '@storybook/addon-onboarding',
+    '@storybook/addon-essentials', // Includes viewport, controls, actions, docs, etc.
+    '@storybook/addon-interactions',
+  ],
 };
 
 export default config;

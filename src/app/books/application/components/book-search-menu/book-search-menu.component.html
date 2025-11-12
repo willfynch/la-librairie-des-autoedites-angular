@@ -1,0 +1,81 @@
+<div
+  class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-30 bg-base-100 shadow-md"
+  [style.transition]="'linear .5s all'"
+  [style.transform]="
+    scrollDirection() === 'down' && scrollY() > 520 ? 'translateY(-1000%)' : 'translateY(0)'
+  "
+>
+  <div class="my-2 flex justify-center">
+    <ul role="navigation" class="menu hidden lg:flex lg:menu-horizontal bg-base-200 rounded-box">
+      @for (item of tabItems(); track item.type) {
+      <li>
+        <a
+          role="button"
+          [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
+          (click)="handleFilterBooks(item.type)"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+      }
+    </ul>
+
+    <div class="dropdown">
+      <div tabIndex="0" role="button" class="btn lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </div>
+      <ul
+        tabIndex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        @for (item of tabItems(); track item.type) {
+        <li>
+          <a
+            role="button"
+            [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
+            (click)="handleFilterBooks(item.type)"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex-grow lg:px-10 my-2">
+    <label class="input w-full">
+      <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <g
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="2.5"
+          fill="none"
+          stroke="currentColor"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </g>
+      </svg>
+      <input
+        (input)="onSearchInput($event)"
+        type="search"
+        class="grow"
+        placeholder="Chercher un livre par titre, auteurice, thématique..."
+      />
+    </label>
+  </div>
+</div>

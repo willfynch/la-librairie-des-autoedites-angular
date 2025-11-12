@@ -1,0 +1,79 @@
+<header class="sticky top-0 z-50 shadow-md">
+  <div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabIndex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </div>
+        <ul
+          tabIndex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow"
+        >
+          @for (item of navbarItems; track item.value) {
+            <li>
+              <a
+                [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
+                [routerLink]="'/' + item.value"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-md flex" routerLink="/">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+        </svg>
+        La librairie des auto-édité(e)s 🏴‍☠️
+      </a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        @for (item of navbarItems; track item.value) {
+          <li>
+            <a
+              [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
+              [routerLink]="'/' + item.value"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+    <div class="navbar-end hidden md:flex">
+      <div
+        class="tooltip tooltip-primary tooltip-bottom before:text-neutral"
+        data-tip="Ouvrir le formulaire"
+      >
+        <a
+          role="link"
+          target="_blank"
+          [href]="submitBookUrl"
+          class="btn btn-primary text-neutral"
+        >
+          Soumettre mon livre
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

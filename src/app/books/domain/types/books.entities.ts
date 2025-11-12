@@ -23,3 +23,8 @@ type BookReview = {
 };
 
 export type BookCategory = 'poetry' | 'novel' | 'essay' | 'youth' | 'erotism' | 'humour';
+
+export interface BookCategoryTabItemModel {
+  type: BookCategory;
+  label: string;
+}

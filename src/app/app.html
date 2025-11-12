@@ -1,41 +1,10 @@
-<div
-  class="hero h-96 relative"
-  style="
-    background-image: url(https://images.pexels.com/photos/877971/pexels-photo-877971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-  "
->
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-center ">
-    <div class="">
-      <h1 class="mb-5 text-4xl lg:text-6xl font-bold text-base-100 title">
-        La librairie des auto-édité(e)s
-      </h1>
-      <p class="mb-5 text-base-100">
-        Pour les hors-pistes de l&apos;édition. Les pirates du verbe. 🏴‍☠️
-        <br />
-        <small>
-          Un projet
-          <a
-            class="link font-semibold"
-            role="link"
-            target="_blank"
-            href="#"
-          >
-            @ducaféetdesrimes
-          </a>
-        </small>
-      </p>
-      <div
-        class="tooltip tooltip-primary tooltip-top"
-        data-tip="Ouvrir le formulaire"
-      >
-        <a target="_blank" href="#" class="btn btn-base-100"> Soumettre mon livre </a>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="bottom-0 absolute w-full"><UpWaves /></div> -->
-</div>
+<app-hero-section></app-hero-section>
 
+<app-book-search-menu
+  [bookCategory]="currentCategory()"
+  [tabItems]="categoryTabs"
+  (filterBooks)="onFilterBooks($event)"
+></app-book-search-menu>
 
 <app-book-card [book]="book()"></app-book-card>
 
