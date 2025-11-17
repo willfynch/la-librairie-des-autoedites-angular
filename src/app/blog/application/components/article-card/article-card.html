@@ -1,0 +1,21 @@
+<div class="group lg:h-[330px] card lg:card-side bg-white shadow-xl">
+  <figure class="lg:w-4/6">
+    <img
+      class="duration-100 scale-105 group-hover:scale-110"
+      [src]="article().cover"
+      [alt]="article().title"
+    />
+  </figure>
+  <div class="card-body lg:w-2/6">
+    <a [routerLink]="['/blog', article().slug]">
+      <h2 class="card-title hover:text-accent">{{ article().title }}</h2>
+    </a>
+    <small>{{ formatDate(article().date) }} - {{ article().author.author_name }}</small>
+    <p>{{ getContentPreview(article().content) }}</p>
+    <div class="card-actions justify-start">
+      <a class="btn btn-primary " [routerLink]="['/blog', article().slug]">
+        Lire l'article
+      </a>
+    </div>
+  </div>
+</div>

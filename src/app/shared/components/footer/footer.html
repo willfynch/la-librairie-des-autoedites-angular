@@ -1,0 +1,58 @@
+<footer class="footer footer-center  footer-horizontal bg-base-200 text-neutral p-10">
+  <aside>
+    <!-- Book icon -->
+    <ng-icon name="heroBookmark" class="text-4xl"></ng-icon>
+
+    <p>
+      La librairie des auto-édité(e)s
+      <br />
+      Un projet
+      <a
+        class="link font-semibold"
+        role="link"
+        target="_blank"
+        [href]="websiteUrl"
+      >
+        &#64;ducaféetdesrimes
+      </a>
+    </p>
+    <p>Copyright © {{ currentYear }} - Tous droits réservés</p>
+  </aside>
+
+  <nav>
+    <div class="grid grid-flow-col gap-2">
+      <a
+        class="btn btn-square btn-neutral text-xl"
+        target="_blank"
+        [href]="instaUrl"
+        aria-label="Instagram"
+      >
+        <ng-icon name="bootstrapInstagram"></ng-icon>
+      </a>
+      <a
+        class="btn btn-square btn-neutral text-xl"
+        target="_blank"
+        [href]="substackUrl"
+        aria-label="Substack"
+      >
+        <ng-icon name="bootstrapSubstack"></ng-icon>
+      </a>
+      <a
+        class="btn btn-square btn-neutral text-xl"
+        target="_blank"
+        [href]="threadsUrl"
+        aria-label="Threads"
+      >
+        <ng-icon name="bootstrapThreads"></ng-icon>
+      </a>
+    </div>
+  </nav>
+
+  <span class="flex flex-row gap-1">
+    Réalisé avec ❤️‍🔥,  <a role="link" target="_blank" href="https://angular.dev/">Angular</a> et  <a role="link" target="_blank" href="https://daisyui.com/">DaisyUI</a>.
+  </span>
+
+  <small>
+    En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+  </small>
+</footer>

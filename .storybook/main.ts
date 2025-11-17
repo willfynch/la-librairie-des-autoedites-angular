@@ -5,7 +5,11 @@ const config: StorybookConfig = {
     name: '@analogjs/storybook-angular',
     options: {},
   },
-  stories: ['../src/app/books/application/components/**/*.stories.ts', '../src/stories/**/*.stories.@(js|mjs|ts)'],
+  stories: [
+    '../src/app/books/application/components/**/*.stories.ts',
+    '../src/app/blog/application/components/**/*.stories.ts',
+    '../src/app/shared/components/**/*.stories.ts',
+  ],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-essentials', // Includes viewport, controls, actions, docs, etc.

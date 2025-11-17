@@ -1,0 +1,25 @@
+.wave-divider {
+  width: 100%;
+  height: 85px;
+  position: relative;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+}
+
+.wave-layer-1 {
+  transition-duration: 500ms;
+  fill: var(--color-base-100);
+}
+
+.wave-layer-2 {
+  transition-duration: 500ms;
+  opacity: 0.5;
+  fill: var(--color-base-100);
+}
+
+.wave-layer-3 {
+  transition-duration: 500ms;
+  opacity: 0.5;
+  fill: var(--color-base-100);
+}

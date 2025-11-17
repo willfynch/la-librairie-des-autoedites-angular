@@ -27,7 +27,7 @@ const sampleBook: Book = {
   year: 2024,
   link: 'https://example.com/book/1',
   tags: ['Aventure', 'Fiction', 'Fantastique'],
-  cover: 'https://m.media-amazon.com/images/I/610NdyNU9NL._SL1500_.jpg',
+  cover: 'https://images.pexels.com/photos/3547625/pexels-photo-3547625.jpeg',
   catchPhrase:
     'Une aventure épique à travers des mondes inconnus, où chaque page révèle de nouveaux mystères.',
   type: 'novel',
@@ -40,33 +40,3 @@ export const Default: Story = {
   },
 };
 
-export const WithLongTitle: Story = {
-  args: {
-    book: {
-      ...sampleBook,
-      title: 'Le Voyage Extraordinaire à Travers les Terres Mystérieuses et les Océans Infinis',
-    },
-  },
-};
-
-export const WithManyTags: Story = {
-  args: {
-    book: {
-      ...sampleBook,
-      tags: ['Aventure', 'Fiction', 'Fantastique', 'Romance', 'Mystère', 'Suspense', 'Drame'],
-    },
-  },
-};
-
-export const Poetry: Story = {
-  args: {
-    book: {
-      ...sampleBook,
-      title: 'Vers et Prose',
-      authorName: 'Jean Poète',
-      tags: ['Poésie', 'Moderne'],
-      type: 'poetry',
-      cover: 'https://m.media-amazon.com/images/I/610NdyNU9NL._SL1500_.jpg',
-    },
-  },
-};
