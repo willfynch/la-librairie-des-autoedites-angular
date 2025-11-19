@@ -1,3 +1,43 @@
-@for(article of articles(); track article.slug){
-    <app-article-card [article]="article"></app-article-card>
-}
+<main>
+  <app-hero-section
+    [title]="'Le blog'"
+    [bgUrl]="'/images/hero-images/blog.webp'"
+  ></app-hero-section>
+  <section aria-labelledby="blog-intro" class="flex flex-col items-center mt-20 mb-14">
+    <div class="prose flex flex-col items-center max-w-[800px] px-4 lg:px-0">
+      <h2 id="blog-intro" class="sr-only">À propos du blog</h2>
+      <p>
+        Ici, vous trouverez des articles sur
+        <strong>l'écriture</strong>, <strong>l'autoédition</strong>, les livres autoédités,
+        <strong>des conseils</strong> en tous genres... !
+      </p>
+      <p class="text-justify">
+        C'est aussi un <strong>espace participatif</strong>. Vous aussi,
+        <strong>vous pouvez avoir votre article dans cette section</strong>. Pour cela, rien de plus
+        simple, <strong>cliquez sur le bouton ci-dessous</strong> et remplissez le formulaire. Si
+        vous avez des questions ou des remarques, contactez-moi via l'adresse
+        <a role="link" href="mailto:ducafeetdesrimes@proton.me">ducafeetdesrimes&#64;proton.me</a>
+        ou sur Instagram sur le compte
+        <a role="link" target="_blank" href="https://instagram.com/du_cafe_et_des_rimes"
+          >&#64;du_cafe_et_des_rimes</a
+        >
+      </p>
+    </div>
+    <a role="button" target="_blank" class="btn btn-primary mt-10" href="https://tally.so/r/3yq8Ed">
+      Soumettre un article
+      <ng-icon name="heroArrowTopRightOnSquare" class="text-lg"></ng-icon>
+    </a>
+  </section>
+
+  <section aria-labelledby="articles-list" class="flex w-full flex-col items-center px-4 mb-30">
+    <div class="flex flex-col items-center gap-4 max-w-[800px]">
+      <h2 id="articles-list" class="sr-only">Articles</h2>
+
+      @for(article of articles(); track article.slug){
+      <app-article-card [article]="article"></app-article-card>
+      } @empty {
+      <p>Il n'y a pas d'article pour le moment.</p>
+      }
+    </div>
+  </section>
+</main>

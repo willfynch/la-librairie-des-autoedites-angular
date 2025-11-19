@@ -25,7 +25,7 @@ export const serverRoutes: ServerRoute[] = [
     },
   },
   {
-    path: 'books',
+    path: 'livres',
     renderMode: RenderMode.Server,
   },
 ];

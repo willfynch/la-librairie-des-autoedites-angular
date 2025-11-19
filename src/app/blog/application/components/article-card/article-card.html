@@ -1,4 +1,4 @@
-<div class="group lg:h-[330px] card lg:card-side bg-white shadow-xl">
+<article class="group lg:h-[330px] card lg:card-side bg-white shadow-xl">
   <figure class="lg:w-4/6">
     <img
       class="duration-100 scale-105 group-hover:scale-110"
@@ -10,7 +10,7 @@
     <a [routerLink]="['/blog', article().slug]">
       <h2 class="card-title hover:text-accent">{{ article().title }}</h2>
     </a>
-    <small>{{ date() }} - {{ article().author.authorName }}</small>
+    <small><time>{{ date() }} - {{ article().author.authorName }}</time></small>
     <p>{{ contentPreview() }}</p>
     <div class="card-actions justify-start">
       <a class="btn btn-primary " [routerLink]="['/blog', article().slug]">
@@ -18,4 +18,4 @@
       </a>
     </div>
   </div>
-</div>
+</article>

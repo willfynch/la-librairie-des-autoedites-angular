@@ -1,5 +1,21 @@
-<header class="sticky top-0 z-[999] h-[65px] shadow-md">
-  <div class="navbar bg-base-100">
+<!-- Navbar items -->
+<ng-template #navItems>
+  @for (item of navbarItems; track item.value) {
+  <li>
+    <a
+      class="btn btn-ghost"
+      [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
+      [routerLink]="'/' + item.value"
+    >
+      {{ item.label }}
+    </a>
+  </li>
+  }
+</ng-template>
+
+<!-- Navbar -->
+<header class="sticky top-0 z-[999] h-[65px] ">
+  <div class="navbar bg-base-100 shadow-md">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabIndex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -20,18 +36,9 @@
         </div>
         <ul
           tabIndex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow-md"
         >
-          @for (item of navbarItems; track item.value) {
-            <li>
-              <a
-                [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
-                [routerLink]="['/' , item.value]"
-              >
-                {{ item.label }}
-              </a>
-            </li>
-          }
+          <ng-container *ngTemplateOutlet="navItems"></ng-container>
         </ul>
       </div>
       <a class="btn btn-ghost text-md flex" routerLink="/">
@@ -41,38 +48,21 @@
           viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+          <path
+            d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"
+          />
         </svg>
         La librairie des auto-édité(e)s 🏴‍☠️
       </a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        @for (item of navbarItems; track item.value) {
-          <li>
-            <a
-              [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
-              [routerLink]=" ['/', item.value]"
-            >
-              {{ item.label }}
-            </a>
-          </li>
-        }
+        <ng-container *ngTemplateOutlet="navItems"></ng-container>
       </ul>
     </div>
     <div class="navbar-end hidden md:flex">
-      <div
-        class="tooltip tooltip-primary tooltip-bottom"
-        data-tip="Ouvrir le formulaire"
-      >
-        <a
-          role="button"
-          target="_blank"
-          [href]="submitBookUrl"
-          class="btn btn-primary"
-        >
-          Soumettre mon livre
-        </a>
+      <div class="tooltip tooltip-primary tooltip-bottom" data-tip="Ouvrir le formulaire">
+        <a target="_blank" [href]="submitBookUrl" class="btn btn-primary"> Soumettre mon livre </a>
       </div>
     </div>
   </div>

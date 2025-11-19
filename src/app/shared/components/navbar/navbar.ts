@@ -3,11 +3,12 @@ import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NAVBAR_ITEMS, URLS_CONSTANTS, ACTIVE_CLASS } from '../../../utils/constants';
 import { NavBarItemModel } from '../../types/models';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './navbar.html',
 })
 export class Navbar {

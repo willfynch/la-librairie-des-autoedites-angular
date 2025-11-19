@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-wave-divider',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './wave-divider.html',
   styleUrls: ['./wave-divider.scss'],
 })
-export class WaveDivider {}
+export class WaveDivider {
+  public readonly fillValue = input.required<string>();
+}
