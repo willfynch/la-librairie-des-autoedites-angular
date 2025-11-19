@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { applicationConfig, componentWrapperDecorator } from '@storybook/angular';
 import { provideRouter } from '@angular/router';
 import { ArticleHeader } from './article-header';
-import { BlogArticleModel } from '../../../domain/types/blog.entities';
+import { BlogArticle } from '../../../domain/types/blog.entities';
 
-const mockArticle: BlogArticleModel = {
+const mockArticle: BlogArticle = {
   slug: 'comment-publier-votre-premier-livre',
   title: 'Comment publier votre premier livre en auto-édition',
   content:
@@ -13,12 +13,12 @@ const mockArticle: BlogArticleModel = {
   cover: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&h=600&fit=crop',
   date: '2024-01-15',
   author: {
-    author_name: 'Marie Dupont',
-    author_pic: 'https://i.pravatar.cc/150?img=5',
-    author_description:
+    authorName: 'Marie Dupont',
+    authorPic: 'https://i.pravatar.cc/150?img=5',
+    authorDescription:
       "Auteure passionnée depuis plus de 10 ans, Marie accompagne les écrivains dans leur parcours d'auto-édition.",
-    author_link: 'https://example.com/auteurs/marie-dupont',
-    author_title: 'Auteure et Coach en Écriture',
+    authorLink: 'https://example.com/auteurs/marie-dupont',
+    authorTitle: 'Auteure et Coach en Écriture',
   },
   category: 'auto-édition',
 };

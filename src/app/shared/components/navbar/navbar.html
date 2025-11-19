@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 shadow-md">
+<header class="sticky top-0 z-[999] h-[65px] shadow-md">
   <div class="navbar bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">
@@ -26,7 +26,7 @@
             <li>
               <a
                 [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
-                [routerLink]="'/' + item.value"
+                [routerLink]="['/' , item.value]"
               >
                 {{ item.label }}
               </a>
@@ -52,7 +52,7 @@
           <li>
             <a
               [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
-              [routerLink]="'/' + item.value"
+              [routerLink]=" ['/', item.value]"
             >
               {{ item.label }}
             </a>

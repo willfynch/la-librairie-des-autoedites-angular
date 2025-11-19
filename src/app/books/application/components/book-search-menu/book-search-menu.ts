@@ -11,7 +11,10 @@ export interface FilterBooksEvent {
   selector: 'app-book-search-menu',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './book-search-menu.component.html',
+  templateUrl: './book-search-menu.html',
+  host: {
+    onscroll: 'onWindowScroll()',
+  },
 })
 export class BookSearchMenuComponent {
   // Input signals
@@ -29,7 +32,6 @@ export class BookSearchMenuComponent {
   // Constants
   protected readonly ACTIVE_CLASS = 'active';
 
-  @HostListener('window:scroll')
   onWindowScroll(): void {
     const currentScrollY = window.scrollY || document.documentElement.scrollTop;
 
@@ -45,14 +47,9 @@ export class BookSearchMenuComponent {
     this.previousScrollY = currentScrollY;
   }
 
-  // Methods
-  handleFilterBooks(type?: BookCategory, searchedValue?: string): void {
-    this.filterBooks.emit({ type, searchedValue });
-  }
-
   onSearchInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     const searchValue = target.value.toString().toLowerCase();
-    this.handleFilterBooks(this.bookCategory(), searchValue);
+    this.filterBooks.emit({ type:this.bookCategory(), searchedValue:searchValue });
   }
 }

@@ -1,7 +1,13 @@
-import { applicationConfig, type Meta, type StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  componentWrapperDecorator,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 import { BookCard } from './book-card';
 import { Book } from '../../../domain/types/books.entities';
 import { provideRouter, withHashLocation } from '@angular/router';
+import data from '../../../mock/data.json';
 
 const meta: Meta<BookCard> = {
   component: BookCard,
@@ -19,20 +25,7 @@ export default meta;
 type Story = StoryObj<BookCard>;
 
 // Sample book data for stories
-const sampleBook: Book = {
-  id: '1',
-  title: 'Le Voyage Extraordinaire',
-  ISBN: '978-2-1234-5678-9',
-  authorName: 'Marie Dubois',
-  year: 2024,
-  link: 'https://example.com/book/1',
-  tags: ['Aventure', 'Fiction', 'Fantastique'],
-  cover: 'https://images.pexels.com/photos/3547625/pexels-photo-3547625.jpeg',
-  catchPhrase:
-    'Une aventure épique à travers des mondes inconnus, où chaque page révèle de nouveaux mystères.',
-  type: 'novel',
-  socialLink: 'https://twitter.com/mariedubois',
-};
+const sampleBook: Book = data.books[80];
 
 export const Default: Story = {
   args: {
@@ -40,3 +33,21 @@ export const Default: Story = {
   },
 };
 
+export const InGrid: Story = {
+  args: {
+    book: sampleBook,
+  },
+  decorators: [
+    componentWrapperDecorator(
+      (story) =>
+        `<div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-2 md:gap-4
+  justify-items-center p-4">
+    @for(i of [1,2,3,4,5,6]; track i){
+      ${story}
+    }</div>
+
+
+    `
+    ),
+  ],
+};

@@ -1,0 +1,4 @@
+@if(article()){
+<app-article-header [blogArticle]="article()!"></app-article-header>
+<div class="prose">{{ article()?.content }}</div>
+}

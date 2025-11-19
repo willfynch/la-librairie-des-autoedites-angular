@@ -26,14 +26,14 @@
             <div class="w-6 rounded-full">
               <img
                 alt="Photo de l'auteur ou de l'autrice"
-                [src]="blogArticle().author.author_pic"
+                [src]="blogArticle().author.authorPic"
               />
             </div>
           </div>
-          {{ blogArticle().author.author_name }}
+          {{ blogArticle().author.authorName }}
         </div>
         <span class="hidden md:block">•</span>
-        <span>{{ formatDate(blogArticle().date) }}</span>
+        <span>{{ date() }}</span>
       </span>
     </span>
     <div class="badge">{{ blogArticle().category }}</div>

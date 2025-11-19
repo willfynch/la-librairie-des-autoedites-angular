@@ -4,11 +4,11 @@ import { provideRouter } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { heroBookmark } from '@ng-icons/heroicons/outline';
 import {
-  bootstrapInstagram,
   bootstrapSubstack,
   bootstrapThreads,
 } from '@ng-icons/bootstrap-icons';
 import { Footer } from './footer';
+import { faBrandInstagram, faBrandThreads } from '@ng-icons/font-awesome/brands';
 
 const meta: Meta<Footer> = {
   title: 'Shared/Footer',
@@ -22,9 +22,9 @@ const meta: Meta<Footer> = {
         // Provide icons for ng-icons
         provideIcons({
           heroBookmark,
-          bootstrapInstagram,
+          faBrandInstagram,
           bootstrapSubstack,
-          bootstrapThreads,
+          faBrandThreads,
         }),
       ],
     }),

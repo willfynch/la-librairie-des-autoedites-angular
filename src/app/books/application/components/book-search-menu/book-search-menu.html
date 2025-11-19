@@ -1,5 +1,5 @@
 <div
-  class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-30 bg-base-100 shadow-md"
+  class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-80 bg-base-100 shadow-md"
   [style.transition]="'linear .5s all'"
   [style.transform]="
     scrollDirection() === 'down' && scrollY() > 520 ? 'translateY(-1000%)' : 'translateY(0)'
@@ -12,7 +12,7 @@
         <a
           role="button"
           [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
-          (click)="handleFilterBooks(item.type)"
+          (click)="onSearchInput($event)"
         >
           {{ item.label }}
         </a>
@@ -46,7 +46,7 @@
           <a
             role="button"
             [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
-            (click)="handleFilterBooks(item.type)"
+            (click)="onSearchInput($event)"
           >
             {{ item.label }}
           </a>

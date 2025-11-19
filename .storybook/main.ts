@@ -12,8 +12,6 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-onboarding',
-    '@storybook/addon-essentials', // Includes viewport, controls, actions, docs, etc.
-    '@storybook/addon-interactions',
   ],
 };
 

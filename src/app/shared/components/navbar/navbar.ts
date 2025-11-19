@@ -19,22 +19,22 @@ export class Navbar {
   protected readonly ACTIVE_CLASS = ACTIVE_CLASS;
 
   // Track current path
-  private currentPath = signal<string>('');
+  private _currentPath = signal<string>('');
 
   constructor() {
     // Initialize with current URL
-    this.currentPath.set(this.router.url);
+    this._currentPath.set(this.router.url);
 
     // Subscribe to route changes
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.currentPath.set(event.urlAfterRedirects);
+        this._currentPath.set(event.urlAfterRedirects);
       });
   }
 
   isPathActive(item: NavBarItemModel): boolean {
-    const path = this.currentPath();
+    const path = this._currentPath();
 
     // Home route check
     if (path === '/' && item.value === '') {

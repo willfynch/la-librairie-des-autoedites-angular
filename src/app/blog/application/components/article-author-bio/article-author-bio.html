@@ -5,28 +5,28 @@
         <div class="w-14 rounded-full">
           <img
           class="m-0!"
-            [alt]="'Photo de ' + blogArticle().author.author_name"
-            [src]="blogArticle().author.author_pic"
+            [alt]="'Photo de ' + blogArticle().author.authorName"
+            [src]="blogArticle().author.authorPic"
           />
         </div>
       </div>
       <div class="flex flex-col">
         <span class="text-2xl font-bold">
-          {{ blogArticle().author.author_name }}
+          {{ blogArticle().author.authorName }}
         </span>
         <span class="text-black/50 text-sm">
-          {{ blogArticle().author.author_title }}
+          {{ blogArticle().author.authorTitle }}
         </span>
       </div>
     </h2>
     <p class="text-justify">
-      {{ blogArticle().author.author_description }}
+      {{ blogArticle().author.authorDescription }}
     </p>
     <div class="card-actions justify-start">
       <a
         target="_blank"
         class="btn no-underline"
-        [href]="blogArticle().author.author_link"
+        [href]="blogArticle().author.authorLink"
       >
         En savoir plus sur moi
         <ng-icon name="heroArrowTopRightOnSquare" size="20"></ng-icon>

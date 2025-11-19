@@ -1,9 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { BlogArticleModel } from '../../../domain/types/blog.entities';
 import { formatDate } from '../../../../utils/format-date';
 import { ScrollSpy } from '../../../../shared/directives/scroll-spy';
+import { BlogArticle } from '../../../domain/types/blog.entities';
 
 @Component({
   selector: 'app-article-header',
@@ -13,7 +13,6 @@ import { ScrollSpy } from '../../../../shared/directives/scroll-spy';
   styleUrls: ['./article-header.scss'],
 })
 export class ArticleHeader {
-  blogArticle = input.required<BlogArticleModel>();
-
-  formatDate = formatDate;
+  blogArticle = input.required<BlogArticle>();
+  date = computed(() => formatDate(this.blogArticle().date));
 }

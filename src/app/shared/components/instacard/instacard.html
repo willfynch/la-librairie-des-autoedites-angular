@@ -1,0 +1,20 @@
+<a
+  [href]="card().link"
+  target="_blank"
+  class="group p-0 relative h-[150px] w-[150px] md:h-[200px] md:w-[200px] block"
+>
+  <!-- Hover overlay -->
+  <div
+    class="duration-200 rounded-lg group-hover:bg-black/50 absolute z-20 h-[150px] w-[150px] md:h-[200px] md:w-[200px]"
+  ></div>
+
+  <!-- Instagram icon (hidden, shown on hover) -->
+  <div
+    class="text-4xl text-white hidden group-hover:flex z-30 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+  >
+    <ng-icon name="faBrandInstagram"></ng-icon>
+  </div>
+
+  <!-- Image -->
+  <img [src]="card().image" [alt]="card().alt" class="m-0 rounded-lg w-full h-full object-cover" />
+</a>

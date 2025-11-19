@@ -10,8 +10,8 @@
     <a [routerLink]="['/blog', article().slug]">
       <h2 class="card-title hover:text-accent">{{ article().title }}</h2>
     </a>
-    <small>{{ formatDate(article().date) }} - {{ article().author.author_name }}</small>
-    <p>{{ getContentPreview(article().content) }}</p>
+    <small>{{ date() }} - {{ article().author.authorName }}</small>
+    <p>{{ contentPreview() }}</p>
     <div class="card-actions justify-start">
       <a class="btn btn-primary " [routerLink]="['/blog', article().slug]">
         Lire l'article

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { BookSearchMenuComponent } from './book-search-menu.component';
+import { BookSearchMenuComponent } from './book-search-menu';
 import type { BookCategoryTabItemModel } from '../../../domain/types/books.entities';
 
 // Mock data for tab items

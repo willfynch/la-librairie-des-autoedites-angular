@@ -1,4 +1,4 @@
-export interface NavBarItemModel {
+export type NavBarItemModel = {
   value: string;
   label: string;
 }
@@ -12,7 +12,7 @@ export type InstaAccount ={
   link: string;
   name: string;
 }
-export interface InstaCard {
+export type InstaCard = {
   image: string;
   link: string;
   alt: string;

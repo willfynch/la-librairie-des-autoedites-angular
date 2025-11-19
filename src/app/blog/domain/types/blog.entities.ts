@@ -1,22 +1,21 @@
-  export interface BlogArticleModel {
+  export type BlogArticle = {
     slug: string;
     title: string;
     content: string;
     tags: string[];
     cover: string | undefined;
     date: string;
-    author: BlogArticleAuthorModel;
+    author: BlogArticleAuthor;
     category: BlogArticleCategory;
 }
 
-export interface BlogArticleAuthorModel {
-  author_name: string;
-  author_pic: string;
-  author_description: string;
-  author_link: string;
-  author_title: string;
+export type BlogArticleAuthor = {
+  authorName: string;
+  authorPic: string;
+  authorDescription: string;
+  authorLink: string;
+  authorTitle: string;
 }
-
 
 //export type MatterResult = ReturnType<typeof matter>;
 export type BlogArticleCategory = "auto-édition" | "écriture" | "promotion";
