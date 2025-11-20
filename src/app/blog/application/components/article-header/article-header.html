@@ -1,8 +1,11 @@
-<progress appScrollSpy
-  class="progress w-screen h-[4px] top-[65px] -mb-[5px] z-50 sticky"
+<progress
+  appScrollSpy
+  aria-label="Progression de la lecture de l'article"
+  class="progress w-full h-[4px] top-[64px] z-[1000] sticky block"
   max="100"
 ></progress>
-<div class="relative h-[300px] w-screen overflow-hidden">
+
+<header class="relative h-[300px] w-full">
   <div class="breadcrumbs text-sm absolute top-4 left-10 z-40 text-base-200">
     <ul>
       <li>
@@ -24,10 +27,7 @@
         <div class="flex justify-center gap-2 items-center text-sm">
           <div class="avatar">
             <div class="w-6 rounded-full">
-              <img
-                alt="Photo de l'auteur ou de l'autrice"
-                [src]="blogArticle().author.authorPic"
-              />
+              <img alt="Photo de l'auteur ou de l'autrice" [src]="blogArticle().author.authorPic" />
             </div>
           </div>
           {{ blogArticle().author.authorName }}
@@ -40,11 +40,11 @@
   </div>
 
   <div
-    class="backdrop-blur-md z-20 bg-[rgba(0,0,0,.5)] absolute top-0 left-0 h-screen w-screen"
+    class="backdrop-blur-md z-20 bg-[rgba(0,0,0,.5)] absolute top-0 left-0 h-full w-screen"
   ></div>
   <img
     class="bg-fixed absolute top-0 object-cover w-full h-full"
     [src]="blogArticle().cover ?? '/images/la_nuit_quand_je_me_dissimule.webp'"
     [alt]="'Photo de couverture de ' + blogArticle().title"
   />
-</div>
+</header>

@@ -9,8 +9,7 @@ import { BlogArticle } from '../../../domain/types/blog.entities';
   selector: 'app-article-header',
   standalone: true,
   imports: [CommonModule, RouterLink, ScrollSpy],
-  templateUrl: './article-header.html',
-  styleUrls: ['./article-header.scss'],
+  templateUrl: './article-header.html'
 })
 export class ArticleHeader {
   blogArticle = input.required<BlogArticle>();

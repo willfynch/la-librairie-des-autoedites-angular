@@ -1,4 +1,11 @@
-@if(article()){
+<article>
 <app-article-header [blogArticle]="article()!"></app-article-header>
-<div class="prose">{{ article()?.content }}</div>
-}
+<main class="flex justify-center my-20">
+  <div class="prose px-4">
+    @if(article()){
+    <markdown ngPreserveWhitespaces>{{ article()!.content }}</markdown>
+    <app-article-author-bio [author]="article()!.author"></app-article-author-bio>
+    }@else{ Loading... }
+  </div>
+</main>
+</article>

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { NgIconComponent } from '@ng-icons/core';
 import { URLS_CONSTANTS } from '../../../utils/constants';
-import { WaveDivider } from "../wave-divider/wave-divider";
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NgIconComponent, WaveDivider],
+  imports: [NgIconComponent],
   templateUrl: './footer.html',
 })
 export class Footer {

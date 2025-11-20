@@ -4,6 +4,7 @@ import { Directive, signal } from '@angular/core';
   selector: '[appScrollSpy]',
   host: {
     '[attr.value]': 'scrollPercentage()',
+    '[attr.aria-valuetext]': '`${scrollPercentage()}% lu`',
     '(window:scroll)': 'onWindowScroll()',
   },
 })
