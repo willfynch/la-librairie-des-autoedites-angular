@@ -1,11 +1,14 @@
-<article>
 <app-article-header [blogArticle]="article()!"></app-article-header>
 <main class="flex justify-center my-20">
-  <div class="prose px-4">
+  <article class="prose px-4">
     @if(article()){
     <markdown ngPreserveWhitespaces>{{ article()!.content }}</markdown>
     <app-article-author-bio [author]="article()!.author"></app-article-author-bio>
-    }@else{ Loading... }
-  </div>
+    }@else{
+    <div role="status" aria-live="polite" class="text-center">
+      <span class="loading loading-spinner loading-lg"></span>
+      <span class="sr-only">Chargement de l'article en cours...</span>
+    </div>
+    }
+  </article>
 </main>
-</article>

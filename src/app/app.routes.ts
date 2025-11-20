@@ -18,6 +18,10 @@ export const routes: Routes = [
     component: BooksCatalog,
   },
   {
+    path: 'a-propos',
+    loadComponent: () => import('./pages/about/about').then(m => m.About),
+  },
+  {
     path: '',
     component: BooksCatalog,
   },

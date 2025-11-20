@@ -12,6 +12,6 @@ import { BlogArticle } from '../../../domain/types/blog.entities';
   templateUrl: './article-header.html'
 })
 export class ArticleHeader {
-  blogArticle = input.required<BlogArticle>();
-  date = computed(() => formatDate(this.blogArticle().date));
+  public readonly blogArticle = input.required<BlogArticle>();
+  protected readonly date = computed(() => formatDate(this.blogArticle().date));  
 }

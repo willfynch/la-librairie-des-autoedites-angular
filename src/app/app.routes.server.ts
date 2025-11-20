@@ -28,4 +28,8 @@ export const serverRoutes: ServerRoute[] = [
     path: 'livres',
     renderMode: RenderMode.Server,
   },
+  {
+    path: 'a-propos',
+    renderMode: RenderMode.Prerender
+  }
 ];
