@@ -1,3 +1,18 @@
+<ng-template #categoriesTabs>
+  @for (item of tabItems(); track item.type) {
+  <li>
+    <a
+      class="btn btn-ghost"
+      role="button"
+      [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
+      (click)="onSearchInput($event)"
+    >
+      {{ item.label }}
+    </a>
+  </li>
+  }
+</ng-template>
+
 <div
   class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-80 bg-base-100 shadow-md"
   [style.transition]="'linear .5s all'"
@@ -7,17 +22,7 @@
 >
   <div class="my-2 flex justify-center">
     <ul role="navigation" class="menu hidden lg:flex lg:menu-horizontal bg-base-200 rounded-box">
-      @for (item of tabItems(); track item.type) {
-      <li>
-        <a
-          role="button"
-          [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
-          (click)="onSearchInput($event)"
-        >
-          {{ item.label }}
-        </a>
-      </li>
-      }
+      <ng-container *ngTemplateOutlet="categoriesTabs"></ng-container>
     </ul>
 
     <div class="dropdown">
@@ -41,17 +46,7 @@
         tabIndex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
       >
-        @for (item of tabItems(); track item.type) {
-        <li>
-          <a
-            role="button"
-            [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
-            (click)="onSearchInput($event)"
-          >
-            {{ item.label }}
-          </a>
-        </li>
-        }
+        <ng-container *ngTemplateOutlet="categoriesTabs"></ng-container>
       </ul>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <app-article-header [blogArticle]="article()!"></app-article-header>
-<main class="flex justify-center my-20">
-  <article class="prose px-4">
+<main class="my-20">
+  <article class="prose px-4 mx-auto">
     @if(article()){
     <markdown ngPreserveWhitespaces>{{ article()!.content }}</markdown>
     <app-article-author-bio [author]="article()!.author"></app-article-author-bio>

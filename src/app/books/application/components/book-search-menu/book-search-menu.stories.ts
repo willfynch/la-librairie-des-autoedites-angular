@@ -43,7 +43,7 @@ const meta: Meta<BookSearchMenuComponent> = {
       },
     },
     // Output events
-    filterBooks: {
+    filterBooksChange: {
       action: 'filterBooks',
       description: 'Emitted when user filters books by category or searches',
       table: {

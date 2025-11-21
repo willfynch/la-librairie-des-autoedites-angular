@@ -1,1 +1,4 @@
-<p>books-catalog works!</p>
+<main>
+    <app-hero-section [title]="'Le catalogue'" [bgUrl]="'https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg'"></app-hero-section>
+    <app-book-search-menu (filterBooksChange)="filterBooks($event)" [bookCategory]="selectedCategory()" [tabItems]="bookCategories"></app-book-search-menu>
+</main>

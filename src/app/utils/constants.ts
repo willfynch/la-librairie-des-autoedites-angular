@@ -1,3 +1,4 @@
+import { BookCategoryTabItemModel } from '../books/domain/types/books.entities';
 import { InstaFeed, NavBarItemModel } from '../shared/types/models';
 
 export const NAVBAR_ITEMS: NavBarItemModel[] = [
@@ -5,6 +6,15 @@ export const NAVBAR_ITEMS: NavBarItemModel[] = [
   { value: 'livres', label: 'Livres' },
   { value: 'blog', label: 'Blog' },
   { value: 'a-propos', label: 'À propos' },
+];
+
+export const BOOK_CATEGORIES: BookCategoryTabItemModel[] = [
+  { type: 'poetry', label: 'Poésie' },
+  { type: 'novel', label: 'Roman' },
+  { type: 'essay', label: 'Essai' },
+  { type: 'youth', label: 'Jeunesse' },
+  { type: 'erotism', label: 'Érotisme' },
+  { type: 'humour', label: 'Humour' },
 ];
 
 export const URLS_CONSTANTS = {

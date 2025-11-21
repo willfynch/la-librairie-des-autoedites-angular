@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BookCategory, BookCategoryTabItemModel } from '../../../domain/types/books.entities';
 
 export interface FilterBooksEvent {
-  type?: BookCategory;
+  category?: BookCategory;
   searchedValue?: string;
 }
 
@@ -22,7 +22,7 @@ export class BookSearchMenuComponent {
   tabItems = input.required<BookCategoryTabItemModel[]>();
 
   // Output event
-  filterBooks = output<FilterBooksEvent>();
+  filterBooksChange = output<FilterBooksEvent>();
 
   // Internal scroll tracking
   protected scrollY = signal<number>(0);
@@ -30,7 +30,7 @@ export class BookSearchMenuComponent {
   private previousScrollY = 0;
 
   // Constants
-  protected readonly ACTIVE_CLASS = 'active';
+  protected readonly ACTIVE_CLASS = 'btn-active';
 
   onWindowScroll(): void {
     const currentScrollY = window.scrollY || document.documentElement.scrollTop;
@@ -50,6 +50,6 @@ export class BookSearchMenuComponent {
   onSearchInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     const searchValue = target.value.toString().toLowerCase();
-    this.filterBooks.emit({ type:this.bookCategory(), searchedValue:searchValue });
+    this.filterBooksChange.emit({ category: this.bookCategory(), searchedValue: searchValue });
   }
 }
