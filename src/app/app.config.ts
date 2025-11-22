@@ -14,6 +14,8 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { BlogGateway } from './blog/domain/ports/blog.gateway';
 import { InMemoryBlogArticlesGateway } from './blog/infrastructure/in-memory-blog-gateway';
 import { provideMarkdown } from 'ngx-markdown';
+import { BooksGateway } from './books/domain/ports/books.gateway';
+import { InMemoryBooksGateway } from './books/infrastructure/in-memory-books-gateway';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     { provide: BlogGateway, useClass: InMemoryBlogArticlesGateway },
+    { provide: BooksGateway, useClass: InMemoryBooksGateway },
     provideIcons({
       heroBookmark,
       bootstrapSubstack,

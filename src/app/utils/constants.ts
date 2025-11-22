@@ -9,6 +9,7 @@ export const NAVBAR_ITEMS: NavBarItemModel[] = [
 ];
 
 export const BOOK_CATEGORIES: BookCategoryTabItemModel[] = [
+  { type: 'all', label: 'Tous' },
   { type: 'poetry', label: 'Poésie' },
   { type: 'novel', label: 'Roman' },
   { type: 'essay', label: 'Essai' },

@@ -1,14 +1,15 @@
 <ng-template #categoriesTabs>
   @for (item of tabItems(); track item.type) {
   <li>
-    <a
+    <button
       class="btn btn-ghost"
       role="button"
+      [value]="item.type"
       [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
-      (click)="onSearchInput($event)"
+      (click)="onCategoryChange($event)"
     >
       {{ item.label }}
-    </a>
+    </button>
   </li>
   }
 </ng-template>
@@ -66,7 +67,7 @@
         </g>
       </svg>
       <input
-        (input)="onSearchInput($event)"
+        (input)="onSearchInputChange($event)"
         type="search"
         class="grow"
         placeholder="Chercher un livre par titre, auteurice, thématique..."

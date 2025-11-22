@@ -25,7 +25,7 @@ export default meta;
 type Story = StoryObj<BookCard>;
 
 // Sample book data for stories
-const sampleBook: Book = data.books[80];
+const sampleBook: Book = data.books.map(book=>{return {category:book.type, ...book}})[80];
 
 export const Default: Story = {
   args: {

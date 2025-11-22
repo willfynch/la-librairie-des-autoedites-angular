@@ -1,6 +1,12 @@
-import { Component, HostListener, input, output, signal } from '@angular/core';
+import { Component, HostListener, inject, input, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BookCategory, BookCategoryTabItemModel } from '../../../domain/types/books.entities';
+import {
+  Book,
+  BookCategory,
+  BookCategoryTabItemModel,
+  isValidCategory,
+} from '../../../domain/types/books.entities';
+import BooksUseCase from '../../../domain/use-cases/books.use-case';
 
 export interface FilterBooksEvent {
   category?: BookCategory;
@@ -18,11 +24,11 @@ export interface FilterBooksEvent {
 })
 export class BookSearchMenuComponent {
   // Input signals
-  bookCategory = input.required<BookCategory>();
-  tabItems = input.required<BookCategoryTabItemModel[]>();
+  public readonly bookCategory = input.required<BookCategory>();
+  public readonly tabItems = input.required<BookCategoryTabItemModel[]>();
 
-  // Output event
-  filterBooksChange = output<FilterBooksEvent>();
+  public readonly searchInputChange = output<string>();
+  public readonly categoryChange = output<BookCategory>();
 
   // Internal scroll tracking
   protected scrollY = signal<number>(0);
@@ -47,9 +53,16 @@ export class BookSearchMenuComponent {
     this.previousScrollY = currentScrollY;
   }
 
-  onSearchInput(event: Event): void {
+  onSearchInputChange(event: Event): void {
     const target = event.target as HTMLInputElement;
     const searchValue = target.value.toString().toLowerCase();
-    this.filterBooksChange.emit({ category: this.bookCategory(), searchedValue: searchValue });
+    this.searchInputChange.emit(searchValue);
+  }
+
+  onCategoryChange(event: Event): void {
+    const category = (event.target as HTMLButtonElement).value.toString().toLowerCase();
+    if (isValidCategory(category)) {
+      this.categoryChange.emit(category);
+    }
   }
 }

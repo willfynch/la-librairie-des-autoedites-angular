@@ -12,5 +12,6 @@ export class BookCard {
 
   public readonly book: InputSignal<Book> = input.required<Book>();
   public readonly slug = computed(() => slugify(this.book().title));
+  public readonly tags = computed(() => this.book().tags.slice(0,3));
 
 }

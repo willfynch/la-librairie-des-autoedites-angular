@@ -1,3 +1,5 @@
+import { isOneOf } from '../../../shared/types/utility-types';
+
 export type Book = {
   title: string;
   ISBN: string;
@@ -9,7 +11,7 @@ export type Book = {
   catchPhrase: string;
   id: string;
   socialLink?: string;
-  type: string;
+  category: string;
   reviews?: BookReview[];
 };
 
@@ -22,7 +24,11 @@ type BookReview = {
   mark?: number;
 };
 
-export type BookCategory = 'poetry' | 'novel' | 'essay' | 'youth' | 'erotism' | 'humour';
+const bookCategories = ['all', 'poetry', 'novel', 'essay', 'youth', 'erotism', 'humour'] as const;
+export type BookCategory = (typeof bookCategories)[number];
+export function isValidCategory(value: unknown): value is BookCategory {
+  return isOneOf<BookCategory>(value, bookCategories);
+}
 
 export interface BookCategoryTabItemModel {
   type: BookCategory;

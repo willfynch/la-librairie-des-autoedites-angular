@@ -14,7 +14,7 @@
 }
 
 // Custom link styles for all links except buttons, card titles, and breadcrumb links
-a:not(.btn, :has(>.card-title), .breadcrumbs a) {
+a:not(.btn, .card, :has(>.card-title), .breadcrumbs a) {
     font-weight: 700;
     position: relative;
     transition: all 0.2s ease-out;

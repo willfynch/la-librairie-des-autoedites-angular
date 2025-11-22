@@ -42,14 +42,6 @@ const meta: Meta<BookSearchMenuComponent> = {
         type: { summary: 'BookCategoryTabItemModel[]' },
       },
     },
-    // Output events
-    filterBooksChange: {
-      action: 'filterBooks',
-      description: 'Emitted when user filters books by category or searches',
-      table: {
-        type: { summary: 'EventEmitter<FilterBooksEvent>' },
-      },
-    },
   },
   args: {
     tabItems: mockTabItems,

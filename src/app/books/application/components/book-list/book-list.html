@@ -1,0 +1,7 @@
+<div
+  class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-2 md:gap-4 justify-items-center p-4"
+>
+  @for(book of books(); track book.id){
+  <app-book-card [book]="book"></app-book-card>
+  }
+</div>
