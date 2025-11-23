@@ -10,5 +10,6 @@ import { BookCard } from "../book-card/book-card";
 export class BookList {
 
   public readonly books = input.required<Book[]>();
+  public readonly bookQuantity = input.required<number>()
 
 }

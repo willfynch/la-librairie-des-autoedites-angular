@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, input, output, signal } from '@angular/core';
+import { Component, HostListener, inject, input, InputSignal, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   Book,
@@ -19,13 +19,13 @@ export interface FilterBooksEvent {
   imports: [CommonModule],
   templateUrl: './book-search-menu.html',
   host: {
-    onscroll: 'onWindowScroll()',
+    '(window:scroll)': 'onWindowScroll()',
   },
 })
 export class BookSearchMenuComponent {
   // Input signals
-  public readonly bookCategory = input.required<BookCategory>();
-  public readonly tabItems = input.required<BookCategoryTabItemModel[]>();
+  public readonly selectedCategory: InputSignal<BookCategory> = input.required<BookCategory>();
+  public readonly tabItems: InputSignal<BookCategoryTabItemModel[]> = input.required<BookCategoryTabItemModel[]>();
 
   public readonly searchInputChange = output<string>();
   public readonly categoryChange = output<BookCategory>();
@@ -35,9 +35,7 @@ export class BookSearchMenuComponent {
   protected scrollDirection = signal<'down' | 'up' | null>(null);
   private previousScrollY = 0;
 
-  // Constants
-  protected readonly ACTIVE_CLASS = 'btn-active';
-
+  // TODO: Make a directive
   onWindowScroll(): void {
     const currentScrollY = window.scrollY || document.documentElement.scrollTop;
 

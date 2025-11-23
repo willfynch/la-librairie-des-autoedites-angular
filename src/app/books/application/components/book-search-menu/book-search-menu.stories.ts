@@ -27,25 +27,25 @@ const meta: Meta<BookSearchMenuComponent> = {
   },
   argTypes: {
     // Input properties
-    bookCategory: {
+    selectedCategory: {
       control: { type: 'select' },
       options: ['poetry', 'novel', 'essay', 'youth', 'erotism', 'humour'],
       description: 'Currently selected book category',
       table: {
-        type: { summary: 'BookCategory' },
+        type: { summary: 'selectedCategory' },
       },
     },
     tabItems: {
       control: 'object',
       description: 'Array of category tab items to display',
       table: {
-        type: { summary: 'BookCategoryTabItemModel[]' },
+        type: { summary: 'selectedCategoryTabItemModel[]' },
       },
     },
   },
   args: {
     tabItems: mockTabItems,
-    bookCategory: 'novel',
+    selectedCategory: 'novel',
   },
 };
 
@@ -67,7 +67,7 @@ export const Default: Story = {};
  */
 export const PoetrySelected: Story = {
   args: {
-    bookCategory: 'poetry',
+    selectedCategory: 'poetry',
   },
 };
 
@@ -77,7 +77,7 @@ export const PoetrySelected: Story = {
  */
 export const EssaySelected: Story = {
   args: {
-    bookCategory: 'essay',
+    selectedCategory: 'essay',
   },
 };
 
@@ -87,7 +87,7 @@ export const EssaySelected: Story = {
  */
 export const YouthSelected: Story = {
   args: {
-    bookCategory: 'youth',
+    selectedCategory: 'youth',
   },
 };
 
@@ -97,7 +97,7 @@ export const YouthSelected: Story = {
  */
 export const HumourSelected: Story = {
   args: {
-    bookCategory: 'humour',
+    selectedCategory: 'humour',
   },
 };
 
@@ -113,6 +113,6 @@ export const LimitedCategories: Story = {
       { type: 'novel', label: 'Roman' },
       { type: 'essay', label: 'Essai' },
     ],
-    bookCategory: 'poetry',
+    selectedCategory: 'poetry',
   },
 };

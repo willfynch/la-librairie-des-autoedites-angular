@@ -1,42 +1,75 @@
-import { map, Observable } from 'rxjs';
+import { map, Observable, shareReplay, tap } from 'rxjs';
 import { BooksGateway } from '../ports/books.gateway';
 import { Book, BookCategory } from '../types/books.entities';
-import { effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import {
+  computed,
+  effect,
+  inject,
+  Injectable,
+  Signal,
+  signal,
+  WritableSignal,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { BOOK_CATEGORIES } from '../../../utils/constants';
 
 @Injectable({ providedIn: 'root' })
 export default class BooksUseCase {
+  // SERVICES
   private readonly _gateway: BooksGateway = inject(BooksGateway);
-  public selectedCategory: WritableSignal<BookCategory> = signal<BookCategory>('all');
-  public searchedValue: WritableSignal<string> = signal<string>('');
 
-  constructor() {
-    effect(() => {
-      this._filterBooks(this.selectedCategory(), this.searchedValue());
-    });
+  // SIGNALS AND OBSERVABLES
+  private readonly _cachedBooks$: Observable<Book[]> = this._gateway.getAllBooks().pipe(
+    shareReplay({ bufferSize: 1, refCount: false })
+  );
+  private readonly _allBooks = toSignal(this._cachedBooks$);
+
+  // FILTER SIGNALS
+  private _searchedValue: WritableSignal<string> = signal<string>('');
+  private _selectedCategory: WritableSignal<BookCategory> = signal<BookCategory>('novel');
+  public readonly selectedCategory: Signal<BookCategory> = this._selectedCategory.asReadonly();
+
+  // FILTERED BOOKS
+  public readonly filteredBooks: Signal<Book[]> = computed(() => {
+    const _allBooks = this._allBooks();
+    if (!_allBooks) return [];
+
+    return _allBooks
+      .filter((book: Book) => this._filterBooksByCategory(book, this._selectedCategory()))
+      .filter((book: Book) => this._filterBooksBySearchedValue(book, this._searchedValue()));
+  });
+
+  // BOOK COUNT SIGNALS - Useful for UI
+  public readonly totalBooksCount: Signal<number> = computed(() => this._allBooks()?.length ?? 0);
+  public readonly filteredBooksCount: Signal<number> = computed(() => this.filteredBooks().length);
+
+  // STATIC VALUES
+  public readonly bookCategories = BOOK_CATEGORIES;
+
+  private _filterBooksByCategory(book: Book, category: BookCategory): boolean {
+    return book.category === category;
   }
 
-  private _filterBooksByCategory(category: BookCategory, books: Book[]) {
-    return books.filter((book) => book.category === category);
-  }
-
-  private _filterBooksBySearchedValue(books: Book[], searchedValue: string) {
-    return books.filter(
-      (book: Book) =>
-        book.title.toLowerCase().includes(searchedValue) ||
-        book.authorName.toLowerCase().includes(searchedValue) ||
-        book.catchPhrase.toLowerCase().includes(searchedValue) ||
-        book.tags.some((tag) => tag.toLowerCase().includes(searchedValue))
+  private _filterBooksBySearchedValue(book: Book, searchedValue: string): boolean {
+    const searchedValueLower = searchedValue.toLocaleLowerCase();
+    return (
+      book.title.toLowerCase().includes(searchedValueLower) ||
+      book.authorName.toLowerCase().includes(searchedValueLower) ||
+      book.tags.some((tag) => tag.toLowerCase().includes(searchedValueLower))
     );
   }
 
-  private _filterBooks(category: BookCategory, searchedValue: string) {
-    this.selectedCategory.set(category);
-    return this.getAllBooks().pipe(
-      map((books) => {
-        const filteredByType = this._filterBooksByCategory(category, books);
-        return this._filterBooksBySearchedValue(filteredByType, searchedValue);
-      })
-    );
+  public updateSelectedCategory(category: BookCategory): void {
+    this._selectedCategory.set(category);
+  }
+
+  public updateSearchedValue(value: string): void {
+    this._searchedValue.set(value);
+  }
+
+  public resetFilters(): void {
+    this._selectedCategory.set('novel');
+    this._searchedValue.set('');
   }
 
   public getAllBooks(): Observable<Book[]> {
@@ -45,5 +78,9 @@ export default class BooksUseCase {
 
   public getOneBook(title: string): Observable<Book | undefined> {
     return this._gateway.getOneBook(title);
+  }
+
+  public getOneBookSync(title: string): Book | undefined {
+    return this._allBooks()?.find((book) => book.title === title);
   }
 }

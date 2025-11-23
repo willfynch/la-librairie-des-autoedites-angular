@@ -24,7 +24,7 @@ type BookReview = {
   mark?: number;
 };
 
-const bookCategories = ['all', 'poetry', 'novel', 'essay', 'youth', 'erotism', 'humour'] as const;
+const bookCategories = ['poetry', 'novel', 'essay', 'youth', 'erotism', 'humour'] as const;
 export type BookCategory = (typeof bookCategories)[number];
 export function isValidCategory(value: unknown): value is BookCategory {
   return isOneOf<BookCategory>(value, bookCategories);

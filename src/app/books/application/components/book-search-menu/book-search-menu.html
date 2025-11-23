@@ -5,7 +5,7 @@
       class="btn btn-ghost"
       role="button"
       [value]="item.type"
-      [class]="item.type === bookCategory() ? ACTIVE_CLASS : ''"
+      [class.btn-active]="item.type === selectedCategory()"
       (click)="onCategoryChange($event)"
     >
       {{ item.label }}
@@ -15,10 +15,10 @@
 </ng-template>
 
 <div
-  class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[70px] z-80 bg-base-100 shadow-md"
-  [style.transition]="'linear .5s all'"
+  class="px-4 flex flex-row justify-center gap-2 lg:block py-4 sticky top-[60px] lg:top-[64px] z-80 bg-base-100 shadow-md"
+  [style.transition]="'linear .3s all'"
   [style.transform]="
-    scrollDirection() === 'down' && scrollY() > 520 ? 'translateY(-1000%)' : 'translateY(0)'
+    scrollDirection() === 'down' && scrollY() > 520 ? 'translateY(-100%)' : 'translateY(0)'
   "
 >
   <div class="my-2 flex justify-center">

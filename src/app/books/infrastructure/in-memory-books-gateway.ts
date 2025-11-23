@@ -9,11 +9,12 @@ import { slugify } from '../../utils/slugify';
 export class InMemoryBooksGateway implements BooksGateway {
   
   private static _books: Book[] = data.books.map((book:any) => {
-    return {
-      category: book.category,
+    const newbook:Book = {
+      category: book.type,
       tags: book.tags.slice(0 ,3),
       ...book
     }
+    return newbook
   });
 
   getAllBooks(): Observable<Book[]> {
