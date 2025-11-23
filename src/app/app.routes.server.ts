@@ -31,5 +31,9 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'a-propos',
     renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'partenaires',
+    renderMode: RenderMode.Prerender
   }
 ];

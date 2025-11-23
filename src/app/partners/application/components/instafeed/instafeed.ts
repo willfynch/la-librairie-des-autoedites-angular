@@ -1,8 +1,8 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { NgIconComponent } from '@ng-icons/core';
 import { InstacardComponent } from '../instacard/instacard';
-import { InstaFeed } from '../../types/models';
+import { PartnerInstaFeed } from '../../../domain/types/partners.entities';
 
 @Component({
   selector: 'app-instafeed',
@@ -12,5 +12,5 @@ import { InstaFeed } from '../../types/models';
   styleUrls: ['./instafeed.scss'],
 })
 export class InstafeedComponent {
-  instafeed = input.required<InstaFeed>();
+  instafeed = input.required<PartnerInstaFeed>();
 }

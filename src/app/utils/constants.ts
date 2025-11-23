@@ -1,10 +1,15 @@
 import { BookCategoryTabItemModel } from '../books/domain/types/books.entities';
-import { InstaFeed, NavBarItemModel } from '../shared/types/models';
+import { PartnerInstaFeed } from '../partners/domain/types/partners.entities';
+import { NavBarItemModel } from '../shared/types/models';
 
 export const NAVBAR_ITEMS: NavBarItemModel[] = [
   { value: '', label: 'Accueil' },
   { value: 'livres', label: 'Livres' },
   { value: 'blog', label: 'Blog' },
+  {
+    value: 'partenaires',
+    label: 'Partenaires',
+  },
   { value: 'a-propos', label: 'À propos' },
 ];
 
@@ -27,7 +32,7 @@ export const URLS_CONSTANTS = {
 
 export const ACTIVE_CLASS = 'active';
 
-export const INSTAFEED: InstaFeed = {
+export const INSTAFEED: PartnerInstaFeed = {
   account: {
     name: 'portailautoedition',
     link: 'https://www.instagram.com/portailautoedition/',

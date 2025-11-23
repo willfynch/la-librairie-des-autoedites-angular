@@ -2,13 +2,31 @@
 <ng-template #navItems>
   @for (item of navbarItems; track item.value) {
   <li>
+    @if(item.children){ @for(child of item.children; track child.value){
+    <details class="mx-auto">
+      <summary class="btn btn-ghost">{{ item.label }}</summary>
+      <ul class="p-2 max-auto">
+        @for(child of item.children; track child.value){
+        <li>
+          <a
+            class="btn btn-ghost"
+            [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
+            [routerLink]="'/' + item.value + '/' + child.value"
+          >
+            {{ child.label }}
+          </a>
+        </li>
+        }
+      </ul>
+    </details>
+    } } @else {
     <a
       class="btn btn-ghost"
       [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
       [routerLink]="'/' + item.value"
     >
-      {{ item.label }}
-    </a>
+      {{ item.label }} </a
+    >}
   </li>
   }
 </ng-template>

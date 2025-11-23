@@ -1,13 +1,12 @@
 import { applicationConfig, type Meta, type StoryObj } from '@storybook/angular';
 import { InstafeedComponent } from './instafeed';
-import { InstaFeed } from '../../types/models';
 import { provideIcons } from '@ng-icons/core';
-import { bootstrapInstagram } from '@ng-icons/bootstrap-icons';
 import { heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
 import { faBrandInstagram } from '@ng-icons/font-awesome/brands';
+import { PartnerInstaFeed } from '../../../domain/types/partners.entities';
 
 // Mock data
-const mockInstafeed: InstaFeed = {
+const mockInstafeed: PartnerInstaFeed = {
   account: {
     name: 'lalibrairiedesautoedites',
     link: 'https://instagram.com/lalibrairiedesautoedites',

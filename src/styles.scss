@@ -20,22 +20,15 @@
     /* color of browser-provided UI */
 
     /* daisyUI theme customized with your Figma colors - updated with darker overlay */
+
     --color-base-100: #FDF7EC;
-    /* New background color #FDF7EC */
     --color-base-200: rgba(248, 239, 217, 1);
-    /* background---primary */
-    --color-base-300: rgba(230, 224, 214, 1);
-    /* content---tertiary-inverse */
+      --color-base-300: rgba(235, 224, 214, 1); //--color-base-300: rgba(230, 224, 214, 1);
     --color-base-content: rgba(28, 17, 3, 1);
-    /* content---primary */
     --color-primary: #3C1710;
-    /* background---brand */
     --color-primary-content: #EAC298; //rgba(255, 254, 251, 1);
-    /* content---primary-inverse */
     --color-secondary: rgba(217, 208, 195, 1);
-    /* background---brand-secondary */
     --color-secondary-content: rgba(28, 17, 3, 1);
-    /* content---primary */
     --color-accent: oklch(68% 0.162 75.834);
     --color-accent-content: rgb(255, 254, 251);
     --color-neutral: oklch(42% 0.095 57.708);

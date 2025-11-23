@@ -1,7 +1,7 @@
 import { Component, input, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
-import { InstaCard } from '../../types/models';
+import { PartnerInstaCard } from '../../../domain/types/partners.entities';
 
 @Component({
   selector: 'app-instacard',
@@ -11,5 +11,5 @@ import { InstaCard } from '../../types/models';
   styleUrls: ['./instacard.scss'],
 })
 export class InstacardComponent {
-  card = input.required<InstaCard>();
+  card = input.required<PartnerInstaCard>();
 }

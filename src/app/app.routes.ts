@@ -3,8 +3,13 @@ import { Blog } from './pages/blog/blog';
 import { BooksCatalog } from './pages/books-catalog/books-catalog';
 import { App } from './app';
 import { Article } from './pages/blog/article/article';
+import { Home } from './pages/home/home';
 
 export const routes: Routes = [
+    {
+    path: '',
+    component: Home,
+  },
   {
     path: 'blog',
     component: Blog,
@@ -22,7 +27,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/about/about').then(m => m.About),
   },
   {
-    path: '',
-    component: BooksCatalog,
-  },
+    path: 'partenaires',
+    loadComponent: () => import('./pages/partner/partners').then(m => m.Partners),    
+  }
 ];
