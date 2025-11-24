@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Blog } from './pages/blog/blog';
 import { BooksCatalog } from './pages/books-catalog/books-catalog';
-import { App } from './app';
 import { Article } from './pages/blog/article/article';
 import { Home } from './pages/home/home';
 
@@ -28,6 +27,10 @@ export const routes: Routes = [
   },
   {
     path: 'partenaires',
-    loadComponent: () => import('./pages/partner/partners').then(m => m.Partners),    
+    loadComponent: () => import('./pages/partner/partners').then(m => m.Partners),
+  },
+  {
+    path: 'partenaires/portail-ae',
+    loadComponent: () => import('./pages/partner/portail-ae/portail-ae').then(m => m.PortailAE)
   }
 ];

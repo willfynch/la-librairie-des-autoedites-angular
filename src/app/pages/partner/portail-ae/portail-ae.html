@@ -1,104 +1,98 @@
-<app-partner-description
-  [partnerName]="'Le portail de l\'auto-édition'"
-  [heroImage]="HERO_IMAGE">
+<!-- HERO -->
+<app-hero-section [title]="'Le portail de l\'auto-édition'" [bgUrl]="HERO_IMAGE">
+</app-hero-section>
+<!-- DESCRIPTION -->
+<article class="flex flex-col items-center justify-center gap-6 mb-10">
+  <section class="prose my-20 px-10 md:px-4">
+    <p>
+      Leçon numéro 1 : à plusieurs, on va plus loin. <br />
+      Je vous présente donc le Portail de l'auto-édition fondé par
+      <a
+        href="https://www.instagram.com/portailautoedition"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abby (opens in new tab)"
+      >
+        Abby</a
+      >.
+    </p>
 
-  <!-- Partner content projected into ng-content -->
-  <p>
-    Leçon numéro 1 : à plusieurs, on va plus loin. <br />
-    Je vous présente donc le Portail de l'auto-édition fondé par
-    <a href="https://www.instagram.com/portailautoedition" target="_blank" rel="noopener noreferrer">
-      Abby
-    </a>.
-  </p>
+    <div class="flex flex-col items-center">
+      <img
+        class="w-[200px] rounded-full"
+        src="/images/partners/portail-ae/portail-ae-logo.webp"
+        alt="Logo du Portail AE"
+        width="200"
+        height="200"
+      />
+    </div>
 
-  <div class="flex flex-col items-center">
-    <img
-      class="w-[200px] rounded-full"
-      src="/images/portail-ae-logo.webp"
-      alt="Logo du Portail AE"
-      width="200"
-      height="200"
-    />
-  </div>
+    <h2>Quels sont les projets du Portail AE ?</h2>
 
-  <h2>Quels sont les projets du Portail AE ?</h2>
+    <p>Laissons la parole à la créatrice :</p>
 
-  <p>Laissons la parole à la créatrice :</p>
+    <blockquote>
+      Aloha moi c'est Abby ! Je suis la fière et heureuse fondatrice du Portail de l'auto-édition :
+      le but étant entre autres de valoriser les auteurs et autrices de la littérature indépendante.
+      Depuis 2017, je mène plusieurs projets pour ça via différents formats.
+    </blockquote>
 
-  <blockquote>
-    Aloha moi c'est Abby ! Je suis la fière et heureuse fondatrice du
-    Portail de l'auto-édition : le but étant entre autres de
-    valoriser les auteurs et autrices de la littérature indépendante.
-    Depuis 2017, je mène plusieurs projets pour ça via différents formats.
-  </blockquote>
+    <ul>
+      <li>Présentations des nouveautés auto-édition trimestrielles | sur instagram</li>
+      <li>Une émission en direct et trimestrielle avec Littlepurplebooks | sur youtube</li>
+      <li>Lecture des 3ers chapitres d'un livre auto-édité | sur youtube et sur le podcast</li>
+      <li>Éventail du portail | sur instagram</li>
+      <li>Service presse</li>
+      <li>Les actualités auto-édition et les besoins/services pour AE | sur instagram</li>
+      <li>Première expérience d'AE | sur le podcast</li>
+    </ul>
 
-  <ul>
-    <li>
-      Présentations des nouveautés auto-édition trimestrielles | sur
-      instagram
-    </li>
-    <li>
-      Une émission en direct et trimestrielle avec Littlepurplebooks | sur
-      youtube
-    </li>
-    <li>
-      Lecture des 3ers chapitres d'un livre auto-édité | sur youtube et
-      sur le podcast
-    </li>
-    <li>Éventail du portail | sur instagram</li>
-    <li>Service presse</li>
-    <li>
-      Les actualités auto-édition et les besoins/services pour AE | sur
-      instagram
-    </li>
-    <li>Première expérience d'AE | sur le podcast</li>
-  </ul>
+    <p>
+      Pour en savoir plus, vous pouvez
+      <a
+        href="https://la-librairie-des-autoedites.ducafeetdesrimes.com/blog/le-portail-auto-edition"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="lire son article (opens in new tab)"
+        >lire son article</a
+      >
+      sur le blog de la librairie des auto-édité(e)s ou consulter son compte Instagram. ⤵
+    </p>
+  </section>
 
-  <p>
-    Pour en savoir plus, vous pouvez
-    <a href="https://la-librairie-des-autoedites.ducafeetdesrimes.com/blog/le-portail-auto-edition" target="_blank" rel="noopener noreferrer">
-      lire son article
-    </a>
-    sur le blog de la librairie des auto-édité(e)s ou consulter son compte
-    Instagram. ⤵
-  </p>
+  <app-instafeed [instafeed]="INSTAFEED" />
 
-  <br />
-  <div class="flex justify-center">
-    <app-instafeed [instafeed]="INSTAFEED" />
-  </div>
-  <br />
+  <app-cta-banner>
+    <ng-container title>Promouvoir son livre sur le Portail AE</ng-container>
+    <ng-container description>
+      <p>
+        Avec le Portail AE, vous pouvez promouvoir votre livre auto-édité. Pour cela il suffit de
+        remplir le formulaire ci-dessous.
+      </p>
+      <br />
+      <p role="alert">
+        <strong class="text-error font-bold">Attention !</strong> Le formulaire est ouvert
+        uniquement durant les mois suivants : février, mai, août, novembre.
+      </p>
+    </ng-container>
+    <ng-container actions>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSexN-puLhZ1pKic1kXECqoN5lNf60NPkw5UiAoTXz0BcKgzKQ/viewform"
+        class="btn btn-primary no-underline font-semibold flex items-center gap-2"
+      >
+        Proposer son livre au Portail AE
+        <ng-icon name="heroArrowTopRightOnSquare" size="20"></ng-icon>
+      </a>
+    </ng-container>
+  </app-cta-banner>
 
-  <h2>Promouvoir son livre sur le Portail AE</h2>
-
-  <p>
-    Avec le Portail AE, vous pouvez promouvoir votre livre auto-édité.
-    Pour cela il suffit de remplir le formulaire ci-dessous.
-  </p>
-
-  <p>
-    <strong class="text-error font-bold">Attention !</strong> Le
-    formulaire est ouvert uniquement durant les mois suivants :
-  </p>
-
-  <ul>
-    <li>Février</li>
-    <li>Mai</li>
-    <li>Août</li>
-    <li>Novembre</li>
-  </ul>
-
-  <br />
-  <div class="flex flex-col items-center">
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSexN-puLhZ1pKic1kXECqoN5lNf60NPkw5UiAoTXz0BcKgzKQ/viewform"
-      class="btn btn-primary text-neutral no-underline font-semibold flex items-center gap-2"
-    >
-      Proposer son livre au Portail AE
-      <ng-icon name="heroArrowTopRightOnSquare" size="20"></ng-icon>
-    </a>
-  </div>
-
-</app-partner-description>
+  <a
+    [routerLink]="['/partenaires']"
+    class="btn btn-secondary no-underline font-semibold flex items-center gap-2"
+  >
+    <ng-icon name="heroArrowLeft" size="20"></ng-icon>
+    Retour aux partenaires
+  </a>
+</article>

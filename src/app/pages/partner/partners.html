@@ -1,55 +1,35 @@
-<app-hero-section
-  [title]="'Nos Partenaires'"
-  [bgUrl]="HERO_IMAGE">
-</app-hero-section>
+<app-hero-section [title]="'Nos Partenaires'" [bgUrl]="HERO_IMAGE"> </app-hero-section>
 
 <section class="container mx-auto px-4 py-16 max-w-6xl">
   <!-- Description Section -->
-  <article class="prose prose-lg mx-auto mb-16 text-center">
-    <p class="text-xl leading-relaxed">
-      La Librairie des Autoédités croit fermement en la force du collectif.
-      Nous collaborons avec des partenaires passionnés qui partagent notre vision :
-      <strong>valoriser la littérature indépendante et donner de la visibilité aux auteurs auto-édités</strong>.
-    </p>
-    <p class="text-lg mt-6">
-      Ensemble, nous créons un écosystème où les talents émergents peuvent s'épanouir,
-      se faire connaître et toucher leurs lecteurs. Découvrez nos partenaires et leurs projets inspirants.
-    </p>
-  </article>
+    <blockquote class=" text-xl mb-16 text-center italic mx-auto">
+    Seul(e), on va plus vite.<br/> Ensemble, on va plus loin.
+  </blockquote>
 
   <!-- Partners Cards Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     @for (partner of partners; track partner.slug) {
-      <app-partner-card
-        [name]="partner.name"
-        [slug]="partner.slug"
-        [description]="partner.description"
-        [image]="partner.image"
-        [highlights]="partner.highlights"
-      />
+    <app-partner-card
+      [name]="partner.name"
+      [slug]="partner.slug"
+      [description]="partner.description"
+      [image]="partner.image"
+      [highlights]="partner.highlights"
+    />
     }
   </div>
 
   <!-- Call to Action -->
-  <div class="mt-16 text-center">
-    <div class="card bg-base-300 text-primary shadow-xl">
-      <div class="card-body">
-        <h3 class="card-title text-3xl justify-center mb-4">
-          Devenez partenaire de la Librairie des AE !
-        </h3>
-        <p class="text-lg mb-6">
-          Rejoignez-nous dans notre mission de promotion de la littérature indépendante.
-          Ensemble, faisons rayonner les talents auto-édités !
-        </p>
-        <div class="card-actions justify-center">
-          <a
-            href="mailto:contact@ducafeetdesrimes.com"
-            class="btn btn-primary btn-lg gap-2"
-          >
-            Nous contacter
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-cta-banner>
+    <ng-container title>Devenez partenaire de la Librairie des AE !</ng-container>
+    <ng-container description>
+      Rejoignez-nous dans notre mission de promotion de la littérature indépendante. Ensemble,
+      faisons rayonner les talents auto-édités !
+    </ng-container>
+    <ng-container actions>
+      <a href="mailto:contact@ducafeetdesrimes.com" class="btn btn-primary btn-lg gap-2">
+        Nous contacter
+      </a>
+    </ng-container>
+  </app-cta-banner>
 </section>

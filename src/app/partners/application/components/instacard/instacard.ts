@@ -5,7 +5,6 @@ import { PartnerInstaCard } from '../../../domain/types/partners.entities';
 
 @Component({
   selector: 'app-instacard',
-  standalone: true,
   imports: [CommonModule, NgIconComponent],
   templateUrl: './instacard.html',
   styleUrls: ['./instacard.scss'],

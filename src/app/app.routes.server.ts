@@ -30,10 +30,14 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'a-propos',
-    renderMode: RenderMode.Prerender
+    renderMode: RenderMode.Prerender,
   },
   {
     path: 'partenaires',
-    renderMode: RenderMode.Prerender
-  }
+    renderMode: RenderMode.Prerender,
+  },
+  {
+    path: 'partenaires/portail-ae',
+    renderMode: RenderMode.Prerender,
+  },
 ];

@@ -1,17 +1,22 @@
-<div class="w-[350px] md:w-[450px] lg:w-[600px] flex flex-wrap gap-2 justify-center items-center">
-  <!-- Instagram cards -->
-  @for (card of instafeed().posts; track card.link) {
-  <app-instacard [card]="card" />
-  }
-
+<div class="w-[350px] md:w-[450px] lg:w-[600px]">
+  <div class="flex flex-wrap gap-2 justify-center items-center">
+    @for (card of instafeed().posts; track card.link) {
+    <app-instacard [card]="card" />
+    }
+  </div>
   <!-- Account link -->
   <a
+    id="insta-account-link"
     [href]="instafeed().account.link"
     target="_blank"
-    class="group font-bold flex items-center gap-1 no-underline text-primary hover:text-neutral/50 duration-100"
+    class="mx-auto group font-bold flex items-center w-fit gap-1 no-underline text-primary hover:text-neutral/50 duration-100"
   >
-    <ng-icon size="20" name="faBrandInstagram" class="text-xl font-bold flex items-center"></ng-icon>
-    <span class="flex items-center">{{ instafeed().account.name }}</span>
+    <ng-icon
+      size="20"
+      name="faBrandInstagram"
+      class="text-xl font-bold flex items-center justify-center translate-y-[3px]"
+    ></ng-icon>
+    <span>{{ instafeed().account.name }}</span>
     <span class="w-0 group-hover:w-5 duration-200 overflow-hidden flex items-center">
       <ng-icon size="16" name="heroArrowTopRightOnSquare"></ng-icon>
     </span>

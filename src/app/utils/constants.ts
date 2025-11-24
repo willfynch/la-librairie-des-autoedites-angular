@@ -32,41 +32,4 @@ export const URLS_CONSTANTS = {
 
 export const ACTIVE_CLASS = 'active';
 
-export const INSTAFEED: PartnerInstaFeed = {
-  account: {
-    name: 'portailautoedition',
-    link: 'https://www.instagram.com/portailautoedition/',
-  },
-  posts: [
-    {
-      image: '../../../public/images/insta1.webp',
-      link: 'https://www.instagram.com/p/DADO4GgNBuG/',
-      alt: 'Projet Pandore : Science-fiction, paranormal',
-    },
-    {
-      image: '../../../public/images/insta2.webp',
-      link: 'https://www.instagram.com/p/DAA_xootUZK/',
-      alt: 'Alfur SÖgur : heroic fantasy',
-    },
-    {
-      image: '../../../public/images/insta6.webp',
-      link: 'https://www.instagram.com/p/DAJf9INtZDq/',
-      alt: 'Le bruit des anges : roman',
-    },
-    {
-      image: '../../../public/images/insta7.webp',
-      link: 'https://www.instagram.com/p/C__E15mNRmm/',
-      alt: "Let's dance : romance fantastique",
-    },
-    {
-      image: '../../../public/images/insta8.webp',
-      link: 'https://www.instagram.com/p/C_sS0n9t8_6/',
-      alt: 'Podcast : dédicacer en librairie',
-    },
-    {
-      image: '../../../public/images/insta9.webp',
-      link: 'https://www.instagram.com/p/DAd_jtZNGVq/',
-      alt: 'Concours des parutions trimestrielles',
-    },
-  ],
-};
+

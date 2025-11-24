@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { HeroSectionComponent } from '../../shared/components/hero-section/hero-section';
 import { PartnerCardComponent } from '../../partners/application/components/partner-card/partner-card';
+import { CtaBanner } from "../../shared/components/cta-banner/cta-banner";
 
 /**
  * Partners index page
@@ -11,8 +11,7 @@ import { PartnerCardComponent } from '../../partners/application/components/part
  */
 @Component({
   selector: 'app-partners',
-  standalone: true,
-  imports: [HeroSectionComponent, PartnerCardComponent],
+  imports: [HeroSectionComponent, PartnerCardComponent, CtaBanner],
   templateUrl: './partners.html',
 })
 export class Partners {
@@ -25,7 +24,7 @@ export class Partners {
       slug: 'portail-ae',
       description:
         'Fondé par Abby, le Portail AE valorise les auteurs et autrices de la littérature indépendante depuis 2017.',
-      image: '/images/partners/portail-ae-logo.webp',
+      image: '/images/partners/portail-ae/portail-ae-logo.webp',
       highlights: [
         'Présentations trimestrielles des nouveautés',
         'Émission en direct avec Littlepurplebooks',
