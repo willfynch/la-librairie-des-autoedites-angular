@@ -1,16 +1,32 @@
 <header
-  class="hero h-96 relative"
+  class="hero relative"
+  [class.h-96]="!fullSize"
+  [class.min-h-screen]="fullSize"
   [style.background-image]="`url(${bgUrl()})`"
 >
   <div class="hero-overlay bg-black/70"></div>
   <div class="hero-content text-center">
     <div>
-      <h1 class="mb-5 text-4xl lg:text-6xl font-bold text-base-100 title">
-        {{title()}}
+      <h1
+        [class.title]="!animatedTitle"
+        [class.animatedTitle]="animatedTitle"
+        class="mb-5 text-5xl lg:text-6xl font-bold text-base-100"
+      >
+        {{ title() }}
       </h1>
       <ng-content></ng-content>
+      @if(fullSize){
+      <div class="scrolldown-icon-container text-base-100 translate-y-10">
+        <div class="scrolldown-icon">
+          <div class="dot dot-1"></div>
+          <div class="dot dot-2"></div>
+          <div class="dot dot-3"></div>
+        </div>
+        <small class="text-shadow-[0px_0px_5px_#FC0]">Scrollez !</small>
+      </div>
+      }
     </div>
   </div>
 
-<app-wave-divider [fillValue]="'base-100'"></app-wave-divider>
+  <app-wave-divider [fillValue]="'base-100'"></app-wave-divider>
 </header>

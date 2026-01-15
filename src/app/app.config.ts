@@ -3,7 +3,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideIcons } from '@ng-icons/core';
 import { heroBookmark, heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
 import { bootstrapSubstack } from '@ng-icons/bootstrap-icons';
@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes),
+    provideRouter(routes, withInMemoryScrolling({scrollPositionRestoration: 'top'})),
     provideClientHydration(withEventReplay()),
     { provide: BlogGateway, useClass: InMemoryBlogArticlesGateway },
     { provide: BooksGateway, useClass: InMemoryBooksGateway },

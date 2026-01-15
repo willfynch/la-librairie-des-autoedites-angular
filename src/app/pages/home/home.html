@@ -1,1 +1,30 @@
-<p>home works!</p>
+<main>
+  <app-hero-section
+    fullSize="true"
+    animatedTitle="true"
+    [title]="'La librairie des auto-édité(e)s'"
+    [bgUrl]="'https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg'"
+  >
+    <h2 class="text-md md:text-xl font-bold text-base-100">Chinez. Publiez. Rêvez.</h2>
+  </app-hero-section>
+
+  <!-- PRESENTATION -->
+  <section id="presentation" class="my-10 px-2 md:px-20">
+    <h2 class="subtitle mx-auto text-center my-10">Un espace rêvé pour l'auto-édition</h2>
+    <!-- CONTENEUR -->
+    <div class="gap-4 w-full flex justify-center flex-wrap">
+      @for(section of sections; track section.title){
+      <app-section-card
+        [title]="section.title"
+        [path]="section.path"
+        [image]="section.image" [description]="section.description" [appearingPicture]="section.appearingPicture"
+      ></app-section-card>
+      }
+    </div>
+  </section>
+  <!-- A LA UNE (LIVRE OU INTERVIEW) -->
+
+  <!-- ARTICLES RECENTS -->
+
+  <!-- INTERVIEWS / PODCASTS RECENTS -->
+</main>

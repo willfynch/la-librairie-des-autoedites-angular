@@ -6,10 +6,7 @@ export const NAVBAR_ITEMS: NavBarItemModel[] = [
   { value: '', label: 'Accueil' },
   { value: 'livres', label: 'Livres' },
   { value: 'blog', label: 'Blog' },
-  {
-    value: 'partenaires',
-    label: 'Partenaires',
-  },
+  { value: 'partenaires', label: 'Partenaires' },
   { value: 'a-propos', label: 'À propos' },
 ];
 
@@ -31,5 +28,3 @@ export const URLS_CONSTANTS = {
 };
 
 export const ACTIVE_CLASS = 'active';
-
-

@@ -17,7 +17,6 @@ export class Navbar {
   // Navigation items
   protected readonly navbarItems = NAVBAR_ITEMS;
   protected readonly submitBookUrl = URLS_CONSTANTS.BOOK_SUBMISSION_FORM;
-  protected readonly ACTIVE_CLASS = ACTIVE_CLASS;
 
   // Track current path
   private _currentPath = signal<string>('');

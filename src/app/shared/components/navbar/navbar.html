@@ -2,37 +2,19 @@
 <ng-template #navItems>
   @for (item of navbarItems; track item.value) {
   <li>
-    @if(item.children){ @for(child of item.children; track child.value){
-    <details class="mx-auto">
-      <summary class="btn btn-ghost">{{ item.label }}</summary>
-      <ul class="p-2 max-auto">
-        @for(child of item.children; track child.value){
-        <li>
-          <a
-            class="btn btn-ghost"
-            [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
-            [routerLink]="'/' + item.value + '/' + child.value"
-          >
-            {{ child.label }}
-          </a>
-        </li>
-        }
-      </ul>
-    </details>
-    } } @else {
     <a
       class="btn btn-ghost"
-      [class]="isPathActive(item) ? ACTIVE_CLASS : ''"
+      [class.btn-active]="isPathActive(item)"
       [routerLink]="'/' + item.value"
     >
       {{ item.label }} </a
-    >}
+    >
   </li>
   }
 </ng-template>
 
 <!-- Navbar -->
-<header class="sticky top-0 z-[999]">
+<header class="nav-header fixed w-full top-0 z-[999]">
   <div class="navbar bg-base-100 shadow-md">
     <div class="navbar-start">
       <div class="dropdown">
@@ -84,4 +66,5 @@
       </div>
     </div>
   </div>
+
 </header>

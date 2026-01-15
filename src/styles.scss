@@ -1,6 +1,6 @@
 @use "tailwindcss";
-
 @use "./app/shared/styles/custom-classes.scss";
+@use "./app/shared/styles/tw-utilities.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
@@ -11,140 +11,151 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui/theme" {
-    name: "coffeeAndRhymes";
-    default: true;
-    /* set as default */
-    prefersdark: false;
-    /* set as default dark mode (prefers-color-scheme:dark) */
-    color-scheme: light;
-    /* color of browser-provided UI */
+  name: "coffeeAndRhymes";
+  default: true;
+  /* set as default */
+  prefersdark: false;
+  /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light;
+  /* color of browser-provided UI */
 
-    /* daisyUI theme customized with your Figma colors - updated with darker overlay */
+  /* daisyUI theme customized with your Figma colors - updated with darker overlay */
 
-    --color-base-100: #FDF7EC;
-    --color-base-200: rgba(248, 239, 217, 1);
-      --color-base-300: rgba(235, 224, 214, 1); //--color-base-300: rgba(230, 224, 214, 1);
-    --color-base-content: rgba(28, 17, 3, 1);
-    --color-primary: #3C1710;
-    --color-primary-content: #EAC298; //rgba(255, 254, 251, 1);
-    --color-secondary: rgba(217, 208, 195, 1);
-    --color-secondary-content: rgba(28, 17, 3, 1);
-    --color-accent: oklch(68% 0.162 75.834);
-    --color-accent-content: rgb(255, 254, 251);
-    --color-neutral: oklch(42% 0.095 57.708);
-    --color-neutral-content: rgb(255, 254, 251);
-    /* content---primary-inverse */
-    --color-info: rgba(75, 107, 129, 1);
-    /* background---info */
-    --color-info-content: rgba(255, 254, 251, 1);
-    /* content---primary-inverse */
-    --color-success: rgba(84, 108, 58, 1);
-    /* background---success */
-    --color-success-content: rgba(255, 254, 251, 1);
-    /* content---primary-inverse */
-    --color-warning: rgba(180, 115, 37, 1);
-    /* background---warning */
-    --color-warning-content: rgba(255, 254, 251, 1);
-    /* content---primary-inverse */
-    --color-error: rgba(190, 72, 39, 1);
-    /* background---error */
-    --color-error-content: rgba(255, 254, 251, 1);
-    /* content---primary-inverse */
+  /* Lightest cream - main background color */
+  --color-base-100: #FDF7EC;
+  /* Light beige - secondary background for cards and sections */
+  --color-base-200: rgba(248, 239, 217, 1);
+  /* Medium beige - tertiary background for subtle differentiation */
+  --color-base-300: rgba(235, 224, 214, 1);
+  /* Very dark brown - main text color for high contrast */
+  --color-base-content: rgba(28, 17, 3, 1);
+  /* Deep coffee brown - primary brand color for key elements */
+  --color-primary: #3C1710;
+  /* Warm tan - text color on primary background */
+  --color-primary-content: #EAC298;
+  /* Light warm beige - secondary accent color */
+  --color-secondary: rgba(217, 208, 195, 1);
+  /* Very dark brown - text color on secondary background */
+  --color-secondary-content: rgba(28, 17, 3, 1);
+  /* Golden brown - accent color for highlights and CTAs */
+  --color-accent: oklch(68% 0.162 75.834);
+  /* Off-white - text color on accent background */
+  --color-accent-content: rgb(255, 254, 251);
+  /* Muted brown - neutral elements and borders */
+  --color-neutral: oklch(42% 0.095 57.708);
+  /* Off-white - text color on neutral background */
+  --color-neutral-content: rgb(255, 254, 251);
+  /* Blue-gray - informational messages and elements */
+  --color-info: rgba(75, 107, 129, 1);
+  /* Off-white - text color on info background */
+  --color-info-content: rgba(255, 254, 251, 1);
+  /* Olive green - success messages and positive actions */
+  --color-success: rgba(84, 108, 58, 1);
+  /* Off-white - text color on success background */
+  --color-success-content: rgba(255, 254, 251, 1);
+  /* Warm amber - warning messages and caution indicators */
+  --color-warning: rgba(180, 115, 37, 1);
+  /* Off-white - text color on warning background */
+  --color-warning-content: rgba(255, 254, 251, 1);
+  /* Rust red - error messages and destructive actions */
+  --color-error: rgba(190, 72, 39, 1);
+  /* Off-white - text color on error background */
+  --color-error-content: rgba(255, 254, 251, 1);
 
-    /* border radius - for pill shapes */
-    --radius-selector: 9999px;
-    /* Pill shape for selectors/buttons */
-    --radius-field: 9999px;
-    /* Pill shape for input fields */
-    --radius-box: 0.5rem;
-    /* Regular rounded corners for other boxes */
+  /* border radius - for pill shapes */
+  --radius-selector: 9999px;
+  /* Pill shape for selectors/buttons */
+  --radius-field: 9999px;
+  /* Pill shape for input fields */
+  --radius-box: 0.5rem;
+  /* Regular rounded corners for other boxes */
 
-    /* base sizes */
-    --size-selector: 0.25rem;
-    --size-field: 0.25rem;
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
 
-    /* border size */
-    --border: 1px;
+  /* border size */
+  --border: 1px;
 
-    /* effects */
-    --depth: 1;
-    --noise: 0;
+  /* effects */
+  --depth: 1;
+  --noise: 0;
 
-    // --rounded-btn: 1.5rem;
-    // --grid-template-columns-books: repeat(auto-fill, minmax(250px, 1fr));
+  // --rounded-btn: 1.5rem;
+  // --grid-template-columns-books: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 @utility prose-coffee {
-    /* Regular (light mode) colors */
-    --tw-prose-body: var(--color-base-content);
-    /* Dark brown #1C1103 for body text */
-    --tw-prose-headings: var(--color-primary);
-    /* Brand brown #573A0F for headings */
-    --tw-prose-lead: var(--color-accent);
-    /* Accent brown #734D15 for lead text */
-    --tw-prose-links: var(--color-accent);
-    /* Accent brown #734D15 for links */
-    --tw-prose-bold: var(--color-primary);
-    /* Brand brown #573A0F for bold */
-    --tw-prose-counters: var(--color-neutral);
-    /* Muted brown #8E7B60 for counters */
-    --tw-prose-bullets: var(--color-neutral);
-    /* Muted brown #8E7B60 for bullets */
-    --tw-prose-hr: var(--color-secondary);
-    /* Light beige #D9D0C3 for hr */
-    --tw-prose-quotes: var(--color-primary);
-    /* Brand brown #573A0F for quotes */
-    --tw-prose-quote-borders: var(--color-secondary);
-    /* Light beige #D9D0C3 for quote borders */
-    --tw-prose-captions: var(--color-neutral);
-    /* Muted brown #8E7B60 for captions */
-    --tw-prose-code: var(--color-accent);
-    /* Accent brown #734D15 for inline code */
-    --tw-prose-pre-code: var(--color-primary-content);
-    /* Light cream #FFFEFB for code text */
-    --tw-prose-pre-bg: var(--color-primary);
-    /* Dark brand brown #573A0F for code background */
-    --tw-prose-th-borders: var(--color-base-300);
-    /* Tertiary #E6E0D6 for table header borders */
-    --tw-prose-td-borders: var(--color-base-200);
-    /* Secondary background #F8EFD9 for table cell borders */
+  /* Regular (light mode) colors */
+  --tw-prose-body: var(--color-base-content);
+  /* Dark brown #1C1103 for body text */
+  --tw-prose-headings: var(--color-primary);
+  /* Brand brown #573A0F for headings */
+  --tw-prose-lead: var(--color-accent);
+  /* Accent brown #734D15 for lead text */
+  --tw-prose-links: var(--color-accent);
+  /* Accent brown #734D15 for links */
+  --tw-prose-bold: var(--color-primary);
+  /* Brand brown #573A0F for bold */
+  --tw-prose-counters: var(--color-neutral);
+  /* Muted brown #8E7B60 for counters */
+  --tw-prose-bullets: var(--color-neutral);
+  /* Muted brown #8E7B60 for bullets */
+  --tw-prose-hr: var(--color-secondary);
+  /* Light beige #D9D0C3 for hr */
+  --tw-prose-quotes: var(--color-primary);
+  /* Brand brown #573A0F for quotes */
+  --tw-prose-quote-borders: var(--color-secondary);
+  /* Light beige #D9D0C3 for quote borders */
+  --tw-prose-captions: var(--color-neutral);
+  /* Muted brown #8E7B60 for captions */
+  --tw-prose-code: var(--color-accent);
+  /* Accent brown #734D15 for inline code */
+  --tw-prose-pre-code: var(--color-primary-content);
+  /* Light cream #FFFEFB for code text */
+  --tw-prose-pre-bg: var(--color-primary);
+  /* Dark brand brown #573A0F for code background */
+  --tw-prose-th-borders: var(--color-base-300);
+  /* Tertiary #E6E0D6 for table header borders */
+  --tw-prose-td-borders: var(--color-base-200);
+  /* Secondary background #F8EFD9 for table cell borders */
 
-    /* Inverted (dark mode) colors */
-    --tw-prose-invert-body: var(--color-base-200);
-    /* Light beige #F8EFD9 for body on dark */
-    --tw-prose-invert-headings: var(--color-primary-content);
-    /* Cream white #FFFEFB for headings */
-    --tw-prose-invert-lead: var(--color-base-100);
-    /* Lightest cream #FDF7EC for lead */
-    --tw-prose-invert-links: var(--color-warning);
-    /* Warm orange #B47325 for links (stands out on dark) */
-    --tw-prose-invert-bold: var(--color-primary-content);
-    /* Cream white #FFFEFB for bold */
-    --tw-prose-invert-counters: var(--color-secondary);
-    /* Light beige #D9D0C3 for counters */
-    --tw-prose-invert-bullets: var(--color-secondary);
-    /* Light beige #D9D0C3 for bullets */
-    --tw-prose-invert-hr: var(--color-neutral);
-    /* Muted brown #8E7B60 for hr */
-    --tw-prose-invert-quotes: var(--color-base-100);
-    /* Light cream #FDF7EC for quotes */
-    --tw-prose-invert-quote-borders: var(--color-neutral);
-    /* Muted brown #8E7B60 for borders */
-    --tw-prose-invert-captions: var(--color-secondary);
-    /* Light beige #D9D0C3 for captions */
-    --tw-prose-invert-code: var(--color-warning);
-    /* Warm orange #B47325 for inline code */
-    --tw-prose-invert-pre-code: var(--color-base-100);
-    /* Light cream #FDF7EC for code text */
-    --tw-prose-invert-pre-bg: rgba(28, 17, 3, 0.9);
-    /* Dark brown with transparency */
-    --tw-prose-invert-th-borders: var(--color-neutral);
-    /* Muted brown #8E7B60 for borders */
-    --tw-prose-invert-td-borders: var(--color-primary);
-    /* Brand brown #573A0F for borders */
+  /* Inverted (dark mode) colors */
+  --tw-prose-invert-body: var(--color-base-200);
+  /* Light beige #F8EFD9 for body on dark */
+  --tw-prose-invert-headings: var(--color-primary-content);
+  /* Cream white #FFFEFB for headings */
+  --tw-prose-invert-lead: var(--color-base-100);
+  /* Lightest cream #FDF7EC for lead */
+  --tw-prose-invert-links: var(--color-warning);
+  /* Warm orange #B47325 for links (stands out on dark) */
+  --tw-prose-invert-bold: var(--color-primary-content);
+  /* Cream white #FFFEFB for bold */
+  --tw-prose-invert-counters: var(--color-secondary);
+  /* Light beige #D9D0C3 for counters */
+  --tw-prose-invert-bullets: var(--color-secondary);
+  /* Light beige #D9D0C3 for bullets */
+  --tw-prose-invert-hr: var(--color-neutral);
+  /* Muted brown #8E7B60 for hr */
+  --tw-prose-invert-quotes: var(--color-base-100);
+  /* Light cream #FDF7EC for quotes */
+  --tw-prose-invert-quote-borders: var(--color-neutral);
+  /* Muted brown #8E7B60 for borders */
+  --tw-prose-invert-captions: var(--color-secondary);
+  /* Light beige #D9D0C3 for captions */
+  --tw-prose-invert-code: var(--color-warning);
+  /* Warm orange #B47325 for inline code */
+  --tw-prose-invert-pre-code: var(--color-base-100);
+  /* Light cream #FDF7EC for code text */
+  --tw-prose-invert-pre-bg: rgba(28, 17, 3, 0.9);
+  /* Dark brown with transparency */
+  --tw-prose-invert-th-borders: var(--color-neutral);
+  /* Muted brown #8E7B60 for borders */
+  --tw-prose-invert-td-borders: var(--color-primary);
+  /* Brand brown #573A0F for borders */
 }
+
+
 
 // Used to make sure fill-base-<value> works with svg in wave-divider components
 @source inline("fill-base-100 fill-base-200 fill-base-300 fill-primary fill-secondary");
-
-

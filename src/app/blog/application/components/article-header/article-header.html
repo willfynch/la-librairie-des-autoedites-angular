@@ -1,4 +1,5 @@
 <progress
+  aria-labelledby="Progression de la lecture de l'article"
   appScrollSpy
   aria-label="Progression de la lecture de l'article"
   class="progress w-full h-[4px] top-[64px] z-[1000] sticky block"
@@ -6,7 +7,10 @@
 ></progress>
 
 <header class="relative h-[300px] w-full">
-  <nav aria-label="Breadcrumbs" class="breadcrumbs text-sm absolute top-4 left-10 z-40 text-base-200">
+  <nav
+    aria-label="Breadcrumbs"
+    class="breadcrumbs text-sm absolute top-4 left-10 z-40 text-base-200"
+  >
     <ol>
       <li>
         <a routerLink="/blog">Blog</a>
@@ -27,7 +31,10 @@
         <div class="flex justify-center gap-2 items-center text-sm">
           <div class="avatar">
             <div class="w-6 rounded-full">
-              <img [alt]="'Photo de ' + blogArticle().author.authorName" [src]="blogArticle().author.authorPic" />
+              <img
+                [alt]="'Photo de ' + blogArticle().author.authorName"
+                [src]="blogArticle().author.authorPic"
+              />
             </div>
           </div>
           {{ blogArticle().author.authorName }}

@@ -13,8 +13,38 @@
     font-style: normal;
 }
 
+.animatedTitle {
+    font-family: "Amatic SC";
+    font-weight: 600;
+    font-style: normal;
+    text-shadow: #FC0 1px 0 10px;
+
+    animation-name: neon-pulse;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+
+}
+
+.animatedText {
+    // font-family: "Amatic SC";
+    // font-weight: 600;
+    font-style: normal;
+    text-shadow: #FC0 1px 0 10px;
+
+    animation-name: neon-pulse;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+
+}
+
 // Custom link styles for all links except buttons, card titles, and breadcrumb links
-a:not(.btn, .card, #insta-account-link, :has(>.card-title), .breadcrumbs a ) {
+a:not(.btn, .card, .sectioncard, #insta-account-link, :has(>.card-title), .breadcrumbs a) {
     font-weight: 700;
     position: relative;
     transition: all 0.2s ease-out;
@@ -41,5 +71,21 @@ a:not(.btn, .card, #insta-account-link, :has(>.card-title), .breadcrumbs a ) {
     &:hover::before {
         bottom: 0;
         height: 100%;
+    }
+}
+
+
+
+@keyframes neon-pulse {
+    0% {
+        text-shadow: rgba(255, 204, 0, 1) 1px 0 10px,rgba(255, 204, 0, 0.5) 1px 0 10px;
+    }
+    50% {
+        text-shadow: rgba(255, 204, 0, 1) 1px 0 10px,
+                     rgba(255, 204, 0, 0.8) 1px 0 20px,
+                     rgba(255, 204, 0, 0.6) 1px 0 30px;
+    }
+    100% {
+        text-shadow: rgba(255, 204, 0, 1) 1px 0 10px, rgba(255, 204, 0, 0.5) 1px 0 10px;
     }
 }

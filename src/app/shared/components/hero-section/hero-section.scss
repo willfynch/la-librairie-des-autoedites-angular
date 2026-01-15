@@ -1,0 +1,57 @@
+.scrolldown-icon {
+    margin: 0 auto;
+    width: 30px;
+    height: 60px;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px #FC0;
+
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 5px #FC0;
+
+    animation-name: pulse;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+}
+
+.dot-1 {
+    top: 25%;
+    animation-delay: .3s;
+}
+
+.dot-2 {
+    top: 50%;
+    animation-delay: .6s;
+
+}
+
+.dot-3 {
+    top: 75%;
+    animation-delay: .9s;
+
+
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
