@@ -1,0 +1,12 @@
+#introduction-section {
+background-image: radial-gradient(#eac298 1px, transparent 1px), radial-gradient(#eac298 1px, transparent 1px);
+background-size: 36px 36px;
+background-position: 0 0, 18px 18px;
+background-color: #fdf7ec;
+}
+
+#section-cards-container {
+    container-type: inline-size;
+    container-name: section-cards-container;
+    flex: 1 0 auto;
+}
