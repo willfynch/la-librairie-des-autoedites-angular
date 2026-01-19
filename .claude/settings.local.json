@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "mcp__angular-cli__search_documentation",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
