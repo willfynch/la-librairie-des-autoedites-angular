@@ -13,9 +13,9 @@ export class Home {
     {
       title: 'Librairie',
       path: 'livres',
-      image: 'https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg',
+      image: 'images/home/sections/library_cover.webp',
       description:
-        'Découvrez notre catalogue de livres auto-édités par des auteurs indépendants francophones',
+        'Découvrez notre catalogue de livres auto-édités',
       appearingPicture: 'images/home/sections/library.webp',
     },
     {
@@ -23,7 +23,7 @@ export class Home {
       path: 'blog',
       image: 'images/hero-images/blog.webp',
       description:
-        'Actualités et conseils pour les auteurs auto-édités et les lecteurs passionnés',
+        'Actualités et conseils pour les auteurs et autrices auto-éditées et les lecteurs et lectrices passionnées',
       appearingPicture: 'images/home/sections/blog.webp',
     },
     {

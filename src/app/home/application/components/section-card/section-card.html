@@ -1,6 +1,6 @@
-<a [routerLink]="path()" class="sectioncard">
-  <div class="cover-container ">
-    <img class="background-image" [src]="image()" [alt]="`Image pour la section ${title()}`" />
+<a [routerLink]="path()" class="sectioncard" [attr.aria-label]="title() + '. ' + description()">
+  <div class="cover-container">
+    <img class="background-image" [src]="image()" [alt]="`Image pour la section ` + title()" />
     <div class="gradient-overlay"></div>
   </div>
 
@@ -8,9 +8,5 @@
     <h3 class="card-title animatedTitle text-base-100 justify-center">{{ title() }}</h3>
   </div>
 
-  <img
-    class="appearing-picture"
-    [src]="appearingPicture()"
-    [alt]="`Image pour la section ${title()}`"
-  />
+  <img aria-hidden="true" class="appearing-picture" [src]="appearingPicture()" alt="" />
 </a>
