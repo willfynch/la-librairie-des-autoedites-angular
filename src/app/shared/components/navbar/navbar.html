@@ -1,21 +1,28 @@
 <!-- Navbar items -->
 <ng-template #navItems>
   @for (item of navbarItems; track item.value) {
-  <li>
-    <a
-      class="btn btn-ghost"
-      [class.btn-active]="isPathActive(item)"
-      [routerLink]="'/' + item.value"
-    >
-      {{ item.label }} </a
-    >
-  </li>
+    <li>
+      <a
+        [class.btn-outline]="isTransparent() && isPathActive(item)"
+        class="btn btn-ghost"
+        [class.btn-active]="!isTransparent() && isPathActive(item)"
+        [routerLink]="'/' + item.value"
+      >
+        {{ item.label }}
+      </a>
+    </li>
   }
 </ng-template>
 
 <!-- Navbar -->
 <header class="nav-header fixed w-full top-0 z-[999]">
-  <div class="navbar bg-base-100 shadow-md">
+  <div
+    class="navbar transition-all duration-300"
+    [class.bg-base-100]="!isTransparent()"
+    [class.shadow-md]="!isTransparent()"
+    [class.bg-transparent]="isTransparent()"
+    [class.text-white]="isTransparent()"
+  >
     <div class="navbar-start">
       <div class="dropdown">
         <div tabIndex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -36,7 +43,8 @@
         </div>
         <ul
           tabIndex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow-md"
+          [class.bg-transparent]="isTransparent()"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-100 mt-3 w-52 p-2 shadow-md transition-all duration-300"
         >
           <ng-container *ngTemplateOutlet="navItems"></ng-container>
         </ul>
@@ -61,10 +69,17 @@
       </ul>
     </div>
     <div class="navbar-end hidden md:flex">
-      <div class="tooltip tooltip-primary tooltip-bottom" data-tip="Ouvrir le formulaire">
-        <a target="_blank" [href]="submitBookUrl" class="btn btn-primary"> Soumettre mon livre </a>
+      <div class="tooltip tooltip-bottom" [class.tooltip-error]="isTransparent()" [class.tooltip-neutral]="!isTransparent()" data-tip="Ouvrir le formulaire">
+        <a
+          target="_blank"
+          [href]="submitBookUrl"
+          [class.btn-error]="isTransparent()"
+          [class.btn-neutral]="!isTransparent()"
+          class="btn"
+        >
+          Soumettre mon livre
+        </a>
       </div>
     </div>
   </div>
-
 </header>
