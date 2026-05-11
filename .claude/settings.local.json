@@ -3,7 +3,10 @@
     "allow": [
       "Bash(find:*)",
       "mcp__angular-cli__search_documentation",
-      "WebSearch"
+      "WebSearch",
+      "Skill(update-config)",
+      "Bash(Get-ChildItem -Path \"C:\\\\dev\\\\personal\\\\la-librairie-des-autoedites-angular\" -Force)",
+      "Bash(Select-Object Name, FullName)"
     ],
     "deny": [],
     "ask": []
