@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { BlogGateway } from '../../../blog/domain/ports/blog.gateway';
+import { InMemoryBlogArticlesGateway } from '../../../blog/infrastructure/in-memory-blog-gateway';
 import { Article } from './article';
 
 describe('Article', () => {
@@ -8,13 +11,16 @@ describe('Article', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Article]
-    })
-    .compileComponents();
+      imports: [Article],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter([]),
+        { provide: BlogGateway, useClass: InMemoryBlogArticlesGateway },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Article);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

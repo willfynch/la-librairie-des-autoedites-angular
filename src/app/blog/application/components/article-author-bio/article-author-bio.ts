@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowTopRightOnSquare } from '@ng-icons/heroicons/outline';
 import { BlogArticleAuthor } from '../../../domain/types/blog.entities';
@@ -7,7 +7,7 @@ import { BlogArticleAuthor } from '../../../domain/types/blog.entities';
 @Component({
   selector: 'app-article-author-bio',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [NgIconComponent],
   templateUrl: './article-author-bio.html',
   viewProviders: [provideIcons({ heroArrowTopRightOnSquare })],
 })

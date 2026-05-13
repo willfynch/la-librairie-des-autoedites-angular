@@ -42,6 +42,10 @@ testem.log
 Thumbs.db
 
 src/app/books/mock/data.json
+
+# Playwright
+/playwright-report
+/test-results
 CLAUDE.md
 *storybook.log
 storybook-static

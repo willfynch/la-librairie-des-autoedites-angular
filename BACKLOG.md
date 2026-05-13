@@ -1,7 +1,7 @@
 # La Librairie des Autoédités — Project Backlog
 
 **Project**: Angular 20 SSR application (migrated from Next.js)  
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-13
 
 ---
 
@@ -15,6 +15,7 @@
 
 ## ⏫ Backlog
 
+- [x] LDA-017: Migrate to Angular 21 — upgrade from v20.2 to v21 (v22 too fresh); migrate unit tests from Karma/Jasmine to Vitest; set up Playwright for E2E tests #deepwork ⏫ ➕ 2026-05-13 ✅ 2026-05-13
 - [ ] LDA-004: Fix book catalog layout bug — tags sometimes overflow outside card borders #deepwork ⏫ ➕ 2026-05-11
 - [ ] LDA-005: Improve book card design — hover animation opens the card like a book, revealing a hidden excerpt in Times New Roman (book-like animation); consider using this as a quick-preview mechanism to reduce clicks to detail page #deepwork 🔼 ➕ 2026-05-11 [spec](tasks/LDA-005-book-card-hover-animation.md)
 - [ ] LDA-006: Create BlogUseCase #deepwork ⏫ ➕ 2026-05-11
