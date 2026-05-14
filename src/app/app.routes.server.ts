@@ -26,7 +26,11 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'livres',
-    renderMode: RenderMode.Server,
+    renderMode: RenderMode.Server
+  },
+  {
+    path: 'livres/:title',
+    renderMode: RenderMode.Server
   },
   {
     path: 'a-propos',

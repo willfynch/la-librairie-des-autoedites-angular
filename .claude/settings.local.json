@@ -6,7 +6,11 @@
       "WebSearch",
       "Skill(update-config)",
       "Bash(Get-ChildItem -Path \"C:\\\\dev\\\\personal\\\\la-librairie-des-autoedites-angular\" -Force)",
-      "Bash(Select-Object Name, FullName)"
+      "Bash(Select-Object Name, FullName)",
+      "Bash(npx ng *)",
+      "Bash(node -e \"const a = require\\('./angular.json'\\); console.log\\(JSON.stringify\\(a.projects['la-librairie-des-autoedites-angular'].architect.test, null, 2\\)\\)\")",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)"
     ],
     "deny": [],
     "ask": []

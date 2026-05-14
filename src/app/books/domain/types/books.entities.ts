@@ -13,6 +13,7 @@ export type Book = {
   socialLink?: string;
   category: string;
   reviews?: BookReview[];
+  authorBio?: string;
 };
 
 type BookReview = {

@@ -18,5 +18,32 @@
         "titleBar.inactiveBackground": "#fcf6ec99",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#FCF6EC"
+    "peacock.color": "#FCF6EC",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.profiles.windows": {
+        
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    },
+    "chat.mcp.serverSampling": {
+        "la-librairie-des-autoedites-angular/.vscode/mcp.json: angular-cli": {
+            "allowedModels": [
+                "copilot/auto",
+                "copilot/claude-haiku-4.5"
+            ]
+        }
+    }
 }

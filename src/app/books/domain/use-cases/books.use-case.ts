@@ -1,4 +1,4 @@
-import { map, Observable, shareReplay, tap } from 'rxjs';
+import { firstValueFrom, map, Observable, shareReplay, tap } from 'rxjs';
 import { BooksGateway } from '../ports/books.gateway';
 import { Book, BookCategory } from '../types/books.entities';
 import {
@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { BOOK_CATEGORIES } from '../../../utils/constants';
+import { slugify } from '../../../utils/slugify';
+import { getThreeRandomNumbers } from '../../../utils/helpers';
 
 @Injectable({ providedIn: 'root' })
 export default class BooksUseCase {
@@ -19,10 +21,11 @@ export default class BooksUseCase {
   private readonly _gateway: BooksGateway = inject(BooksGateway);
 
   // SIGNALS AND OBSERVABLES
-  private readonly _cachedBooks$: Observable<Book[]> = this._gateway.getAllBooks().pipe(
-    shareReplay({ bufferSize: 1, refCount: false })
-  );
-  private readonly _allBooks = toSignal(this._cachedBooks$);
+  private readonly _cachedBooks$: Observable<Book[]> = this._gateway
+    .getAllBooks()
+    .pipe(shareReplay({ bufferSize: 1, refCount: false }));
+  private readonly _allBooks = toSignal(this._cachedBooks$, { initialValue: [] });
+  public readonly $allBooks: Signal<Book[]> = this._allBooks;
 
   // FILTER SIGNALS
   private _searchedValue: WritableSignal<string> = signal<string>('');
@@ -40,11 +43,15 @@ export default class BooksUseCase {
   });
 
   // BOOK COUNT SIGNALS - Useful for UI
+
   public readonly totalBooksCount: Signal<number> = computed(() => this._allBooks()?.length ?? 0);
   public readonly filteredBooksCount: Signal<number> = computed(() => this.filteredBooks().length);
 
   // STATIC VALUES
+
   public readonly bookCategories = BOOK_CATEGORIES;
+
+  // METHODS
 
   private _filterBooksByCategory(book: Book, category: BookCategory): boolean {
     return book.category === category;
@@ -76,11 +83,65 @@ export default class BooksUseCase {
     return this._gateway.getAllBooks();
   }
 
-  public getOneBook(title: string): Observable<Book | undefined> {
-    return this._gateway.getOneBook(title);
+  public getBookBySlug(slug: string): Observable<Book | undefined> {
+    return this._gateway.getOneBook(slug);
   }
 
-  public getOneBookSync(title: string): Book | undefined {
-    return this._allBooks()?.find((book) => book.title === title);
+  public getOneBookSync(slug: string): Book | undefined {
+    return this._allBooks()?.find((book) => slugify(book.title) === slug);
+  }
+
+  private getCommonTags(firstBook: Book, secondBook: Book): string[] {
+    const firstBookTags = firstBook.tags;
+    const secondBookTags = secondBook.tags;
+    const commonTags: string[] = [];
+
+    firstBookTags.forEach(tag=>{
+      if(secondBookTags.includes(tag)){
+        commonTags.push(tag)
+      }
+    });
+
+    return commonTags;
+  }
+
+  public getRelatedBooks(slug: string): Book[] {
+    const currentBook = this._allBooks().findLast((book) => slugify(book.title) === slug);
+    if(currentBook===undefined){
+      throw new Error('No book was found.')
+    }
+    const relatedBooks: Book[] = [];
+
+    // exclude current book
+    const allOtherBooks = this._allBooks()?.filter((book) => slugify(book.title) !== slug);
+
+    // Lists of related books
+    const sameAuthorBooks = allOtherBooks.filter(
+      (book) => book.authorName === currentBook?.authorName,
+    );
+
+    const booksFromOtherAuthorsWithTwoCommonTags = allOtherBooks
+      .filter((book) => book.authorName !== currentBook?.authorName)
+      .filter((book) => this.getCommonTags(book, currentBook).length >= 2);
+
+    const booksFromOtherAuthorsWithOneCommonTags = allOtherBooks
+      .filter((book) => book.authorName !== currentBook?.authorName)
+      .filter((book) => this.getCommonTags(book, currentBook).length >= 1);
+
+
+    let pool = [...sameAuthorBooks, ...booksFromOtherAuthorsWithTwoCommonTags];
+
+    if(pool.length < 3){
+      pool = [...pool, ...booksFromOtherAuthorsWithOneCommonTags];
+    }
+
+    const listOfIndexes = Array.from({length: pool.length}, (x, i) => i)
+    const randomIndexes = getThreeRandomNumbers(listOfIndexes);
+
+    randomIndexes.forEach(index => {
+      sameAuthorBooks.push(pool[index]);
+    })
+
+    return sameAuthorBooks;
   }
 }

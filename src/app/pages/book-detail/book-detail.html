@@ -1,0 +1,19 @@
+@if ($book() !== undefined) {
+  <app-hero-section [title]="$book()!.title" [bgUrl]="$book()!.cover" />
+
+  <p>{{ $book()!.authorName }}</p>
+
+  <a href="" data-testid="buy-cta"></a>
+
+
+  @if ($relatedBooks()) {
+    <section data-testid="related-books">
+      <h2>Vous pourriez aimer... </h2>
+      <div class="grid h-42 cols-3">
+        @for(book of $relatedBooks(); track book.id){
+        <app-book-card [book]="book"/>
+      }
+      </div>
+    </section>
+  }
+}

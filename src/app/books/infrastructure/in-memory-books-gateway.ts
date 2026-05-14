@@ -21,9 +21,9 @@ export class InMemoryBooksGateway implements BooksGateway {
     return defer(() => of(InMemoryBooksGateway._books));
   }
 
-  getOneBook(title: string): Observable<Book | undefined> {
+  getOneBook(slug: string): Observable<Book | undefined> {
     return this.getAllBooks().pipe(
-      map((books) => books.findLast((book) => slugify(book.title) === title))
+      map((books) => books.findLast((book) => slugify(book.title) === slug))
     );
   }
 

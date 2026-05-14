@@ -3,6 +3,7 @@ import { Blog } from './pages/blog/blog';
 import { BooksCatalog } from './pages/books-catalog/books-catalog';
 import { Article } from './pages/blog/article/article';
 import { Home } from './pages/home/home';
+import { BookDetail } from './pages/book-detail/book-detail';
 
 export const routes: Routes = [
     {
@@ -11,15 +12,19 @@ export const routes: Routes = [
   },
   {
     path: 'blog',
-    component: Blog,
+    loadComponent: () => import('./pages/blog/blog').then(m => m.Blog)
   },
   {
     path: 'blog/:slug',
-    component: Article,
+    loadComponent: () => import('./pages/blog/article/article').then(m => m.Article)
   },
   {
     path: 'livres',
-    component: BooksCatalog,
+    loadComponent: () => import('./pages/books-catalog/books-catalog').then(m => m.BooksCatalog)
+  },
+  {
+    path: 'livres/:title',
+    loadComponent: () => import('./pages/book-detail/book-detail').then(m => m.BookDetail)
   },
   {
     path: 'a-propos',
