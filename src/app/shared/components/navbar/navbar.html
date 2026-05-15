@@ -63,12 +63,12 @@
         La librairie des auto-édité(e)s 🏴‍☠️
       </a>
     </div>
-    <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal p-0">
+    <div class="navbar-center hidden lg:flex ">
+      <ul class="menu menu-horizontal p-0 lg:gap-2">
         <ng-container *ngTemplateOutlet="navItems"></ng-container>
       </ul>
     </div>
-    <div class="navbar-end hidden md:flex">
+    <div class="navbar-end hidden md:flex ">
       <div class="tooltip tooltip-bottom" [class.tooltip-error]="isTransparent()" [class.tooltip-neutral]="!isTransparent()" data-tip="Ouvrir le formulaire">
         <a
           target="_blank"
