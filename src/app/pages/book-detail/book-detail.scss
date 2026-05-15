@@ -1,0 +1,124 @@
+section {
+    --dark-color: gray;
+    --subtle-color: rgb(213, 211, 208);
+    --main-color: #FFFCF3;
+}
+
+.wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 300px;
+    // height: 300px;
+    perspective: 1500px;
+    perspective-origin: 50% 50%;
+}
+
+.book-container {
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 5px;
+
+}
+
+.book-container>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transition: transform 2s;
+}
+
+.book-cover {
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    transform: scaleY(1.02) rotateY(-0deg);
+}
+
+.book-cover img {
+    border-radius: 5px;
+}
+
+.book-cover::after {
+    content: '';
+    z-index: 90;
+    position: absolute;
+    height: 100%;
+    width: 2%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+
+    transition: ease-in-out 1.5s;
+}
+
+.book-container:hover .book-cover {
+    transform: rotateY(-60deg);
+}
+
+.book-container:hover .book-cover::after {
+    width: 7%;
+    transition: ease-in-out 1.5s;
+    background: linear-gradient(to right, rgba(62, 27, 1, 0.5), transparent);
+
+
+}
+
+.cover-end {
+    transform: translateX(0px) rotateY(0deg);
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+}
+
+.back {
+    height: 200px;
+    width: 10px;
+    background-color: var(--subtle-color);
+    border-radius: 5px;
+}
+
+.page {
+    background: linear-gradient(to right, var(--subtle-color), 20%, var(--main-color));
+    border: 1px solid var(--subtle-color);
+}
+
+.page.last {
+    transform: translateX(0px) rotateY(0deg);
+    display: flex;
+    align-items: center;
+}
+
+.excerpt::after {
+    content: '';
+    z-index: 90;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: inset -1rem -.5rem 1rem rgba(150, 67, 3, 0.3);
+    transition: ease-in-out 1.5s;
+}
+
+.book-container:hover .excerpt::after {
+    box-shadow: inset 0rem 0rem 0rem rgba(150, 67, 3, 0.0);
+}
+
+.excerpt {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    text-align: justify;
+    padding: 1rem 2rem;
+}
+
+.shadow {
+    position: absolute;
+    z-index: -5;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 8px 8px 36px 8px var(--dark-color);
+    transition: ease-in-out 1.5s;
+
+
+}

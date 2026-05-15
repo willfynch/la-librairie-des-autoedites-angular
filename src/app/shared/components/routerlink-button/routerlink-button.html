@@ -1,0 +1,8 @@
+<a
+  [routerLink]="url()"
+  [class.btn-error]="isError()"
+  [class.btn-neutral]="isNeutral()"
+  [class]="'btn w-full text-center ' + btnType()"
+>
+  {{ text() }}
+</a>

@@ -139,9 +139,9 @@ export default class BooksUseCase {
     const randomIndexes = getThreeRandomNumbers(listOfIndexes);
 
     randomIndexes.forEach(index => {
-      sameAuthorBooks.push(pool[index]);
+      relatedBooks.push(pool[index]);
     })
 
-    return sameAuthorBooks;
+    return relatedBooks;
   }
 }

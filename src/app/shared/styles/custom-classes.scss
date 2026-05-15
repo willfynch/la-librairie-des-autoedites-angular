@@ -13,6 +13,17 @@
     font-style: normal;
 }
 
+.third-title {
+    font-size: 4rem;
+    font-weight: 600;
+    font-style: normal;
+}
+.fourth-title {
+    font-size: 2rem;
+    font-weight: 600;
+    font-style: normal;
+}
+
 .animatedTitle {
     font-family: "Amatic SC";
     font-weight: 600;
@@ -78,13 +89,15 @@ a:not(.btn, .card, .sectioncard, #insta-account-link, :has(>.card-title), .bread
 
 @keyframes neon-pulse {
     0% {
-        text-shadow: rgba(255, 204, 0, 1) 1px 0 10px,rgba(255, 204, 0, 0.5) 1px 0 10px;
+        text-shadow: rgba(255, 204, 0, 1) 1px 0 10px, rgba(255, 204, 0, 0.5) 1px 0 10px;
     }
+
     50% {
         text-shadow: rgba(255, 204, 0, 1) 1px 0 10px,
-                     rgba(255, 204, 0, 0.8) 1px 0 20px,
-                     rgba(255, 204, 0, 0.6) 1px 0 30px;
+            rgba(255, 204, 0, 0.8) 1px 0 20px,
+            rgba(255, 204, 0, 0.6) 1px 0 30px;
     }
+
     100% {
         text-shadow: rgba(255, 204, 0, 1) 1px 0 10px, rgba(255, 204, 0, 0.5) 1px 0 10px;
     }
