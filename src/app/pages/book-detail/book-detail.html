@@ -1,13 +1,10 @@
 @if ($book() !== undefined) {
   <app-hero-section [title]="$book()!.title" [bgUrl]="$book()!.cover" />
 
-
-
   <section class="flex flex-col md:flex-row gap-12 md:-gap-4 w-full h-full justify-center my-40">
-    <!-- Image-->
+    <!-- Cover Image-->
     <div class="w-full md:w-1/2">
       <div class="wrapper">
-        
         <div class="w-60 h-100 md:w-80 md:h-120 relative mx-auto book-container">
           <span class="shadow"></span>
           <div class="back"></div>
@@ -63,19 +60,21 @@
 
   <!-- Reviews -->
   <section data-testid="reviews" class="h-content my-20">
-          <h2 class="subtitle mx-auto text-center">Iels en parlent... !</h2>
+    <h2 class="subtitle mx-auto text-center">Iels en parlent... !</h2>
 
-          @if($book()!.reviews){
-
-          }@else{
-            <div class="p-6 border-neutral border-2 rounded-lg mx-2 md:mx-auto md:w-1/2 my-8 bg-neutral/5 shadow-md">
-              <p class="fourth-title text-center">🪹</p>
-              <h4 class="fourth-title text-center">Personne n'a encore ajouté son avis lecture ici.</h4>
-              <p class="text-center mt-10">Bientôt, un moyen d'ajouter directement ses avis lecture ici !</p>
-              <p class="text-center text-sm">(Bookstagram, Booktok, et plus encore !)</p>
-            </div>
-          }
-
+    @if ($book()!.reviews) {
+    } @else {
+      <div
+        class="p-6 border-neutral border-2 rounded-lg mx-2 md:mx-auto md:w-1/2 my-8 bg-neutral/5 shadow-md"
+      >
+        <p class="fourth-title text-center">🪹</p>
+        <h4 class="fourth-title text-center">Personne n'a encore ajouté son avis lecture ici.</h4>
+        <p class="text-center mt-10">
+          Bientôt, un moyen d'ajouter directement ses avis lecture ici !
+        </p>
+        <p class="text-center text-sm">(Bookstagram, Booktok, et plus encore !)</p>
+      </div>
+    }
   </section>
 
   <!-- Related books-->
@@ -92,7 +91,10 @@
   }
 
   <div class="mb-20 mx-auto w-full md:w-80 px-2">
-      <app-routerlink-button [btnType]="'btn-neutral'" [url]="'/livres'" [text]="'⬅️ Retour au catalogue'"/>
-
+    <app-routerlink-button
+      [btnType]="'btn-neutral'"
+      [url]="'/livres'"
+      [text]="'⬅️ Retour au catalogue'"
+    />
   </div>
 }

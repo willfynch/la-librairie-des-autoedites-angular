@@ -119,15 +119,12 @@ export default class BooksUseCase {
     const sameAuthorBooks = allOtherBooks.filter(
       (book) => book.authorName === currentBook?.authorName,
     );
-
     const booksFromOtherAuthorsWithTwoCommonTags = allOtherBooks
       .filter((book) => book.authorName !== currentBook?.authorName)
       .filter((book) => this.getCommonTags(book, currentBook).length >= 2);
-
     const booksFromOtherAuthorsWithOneCommonTags = allOtherBooks
       .filter((book) => book.authorName !== currentBook?.authorName)
       .filter((book) => this.getCommonTags(book, currentBook).length >= 1);
-
 
     let pool = [...sameAuthorBooks, ...booksFromOtherAuthorsWithTwoCommonTags];
 

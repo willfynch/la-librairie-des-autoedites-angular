@@ -33,6 +33,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server
   },
   {
+    path: 'proposer-mon-livre',
+    renderMode: RenderMode.Client
+  },
+  {
     path: 'a-propos',
     renderMode: RenderMode.Prerender,
   },
