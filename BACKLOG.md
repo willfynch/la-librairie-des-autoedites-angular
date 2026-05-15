@@ -1,7 +1,7 @@
 # La Librairie des Autoédités — Project Backlog
 
 **Project**: Angular 21 SSR application (migrated from Next.js)  
-**Last Updated**: 2026-05-13
+**Last Updated**: 2026-05-15
 
 ---
 
